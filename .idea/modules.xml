@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WatchTV.iml" filepath="$PROJECT_DIR$/WatchTV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidtvwidget/androidtvwidget.iml" filepath="$PROJECT_DIR$/androidtvwidget/androidtvwidget.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

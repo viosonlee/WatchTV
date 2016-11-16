@@ -1,39 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:orientation="vertical"
     tools:context="lee.vioson.watchtv.UI.activities.MainActivity">
 
     <LinearLayout
         android:id="@+id/tab_bar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentRight="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textSize="20sp"
-            tools:text="最新" />
+        <com.open.androidtvwidget.view.SmoothHorizontalScrollView
+            android:id="@+id/hscroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:scrollbars="none">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textSize="20sp"
-            tools:text="影视" />
+            <com.open.androidtvwidget.view.FrameMainLayout
+                android:id="@+id/main_lay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
+                <com.open.androidtvwidget.view.ReflectItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="5dp"
+                    app:isReflect="true"
+                    app:isShape="true"
+                    app:radius="10dp">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        style="@style/itemTextBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="最新"
+                        android:textSize="20sp" />
+                </com.open.androidtvwidget.view.ReflectItemView>
+
+                <com.open.androidtvwidget.view.ReflectItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="5dp"
+                    app:isReflect="true"
+                    app:isShape="true"
+                    app:radius="10dp">
+
+                    <TextView
+                        style="@style/itemTextBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="最新"
+                        android:textSize="20sp" />
+                </com.open.androidtvwidget.view.ReflectItemView>
+
+                <com.open.androidtvwidget.view.ReflectItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="5dp"
+                    app:isReflect="true"
+                    app:isShape="true"
+                    app:radius="10dp">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        style="@style/itemTextBlack"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:text="影视"
+                        android:textSize="20sp" />
+                </com.open.androidtvwidget.view.ReflectItemView>
+
+                <com.open.androidtvwidget.view.ReflectItemView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="190dp"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="5dp"
+                    app:isReflect="true"
+                    app:isShape="true"
+                    app:radius="10dp">
+
+                    <TextView
+                        style="@style/itemTextBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="直播"
+                        android:textSize="20sp" />
+                </com.open.androidtvwidget.view.ReflectItemView>
+            </com.open.androidtvwidget.view.FrameMainLayout>
+        </com.open.androidtvwidget.view.SmoothHorizontalScrollView>
+
+        <com.open.androidtvwidget.view.MainUpView
+            android:id="@+id/mainUpView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textSize="20sp"
-            tools:text="直播" />
+            app:upImageRes="@drawable/test_rectangle" />
     </LinearLayout>
 
     <FrameLayout
