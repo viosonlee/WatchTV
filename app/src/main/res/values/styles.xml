@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="itemTextBlack">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@drawable/normal_text_color_selecter</item>
+    </style>
+
 </resources>
