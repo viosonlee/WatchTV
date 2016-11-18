@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/WatchTV.iml" filepath="$PROJECT_DIR$/WatchTV.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidtvwidget/androidtvwidget.iml" filepath="$PROJECT_DIR$/androidtvwidget/androidtvwidget.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitamio/vitamio.iml" filepath="$PROJECT_DIR$/vitamio/vitamio.iml" />
     </modules>
   </component>
 </project>

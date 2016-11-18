@@ -1,1 +1,1 @@
-include ':app', ':androidtvwidget'
+include ':app', ':androidtvwidget', ':vitamio'
