@@ -4,11 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.RelativeLayout;
 
 import com.open.androidtvwidget.bridge.OpenEffectBridge;
 import com.open.androidtvwidget.utils.Utils;
 import com.open.androidtvwidget.view.FrameMainLayout;
 import com.open.androidtvwidget.view.MainUpView;
+import com.open.androidtvwidget.view.RelativeMainLayout;
 import com.open.androidtvwidget.view.SmoothHorizontalScrollView;
 
 import lee.vioson.watchtv.R;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         // mainUpView1.setDrawShadowPadding(0); // 阴影图片设置距离.
         // mOpenEffectBridge.setTranDurAnimTime(500); // 动画时间.
 
-        FrameMainLayout main_lay11 = (FrameMainLayout) findViewById(R.id.main_lay);
+        RelativeMainLayout main_lay11 = (RelativeMainLayout) findViewById(R.id.main_lay);
         main_lay11.getViewTreeObserver().addOnGlobalFocusChangeListener(new ViewTreeObserver.OnGlobalFocusChangeListener() {
             @Override
             public void onGlobalFocusChanged(final View oldFocus, final View newFocus) {

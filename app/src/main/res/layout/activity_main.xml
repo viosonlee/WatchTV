@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/tab_bar"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:clipChildren="false"
         android:clipToPadding="false"
@@ -22,16 +22,16 @@
         <com.open.androidtvwidget.view.SmoothHorizontalScrollView
             android:id="@+id/hscroll_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:fillViewport="true"
             android:scrollbars="none">
 
-            <com.open.androidtvwidget.view.FrameMainLayout
+            <com.open.androidtvwidget.view.RelativeMainLayout
                 android:id="@+id/main_lay"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <com.open.androidtvwidget.view.ReflectItemView
                     android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
                         android:text="直播"
                         android:textSize="20sp" />
                 </com.open.androidtvwidget.view.ReflectItemView>
-            </com.open.androidtvwidget.view.FrameMainLayout>
+            </com.open.androidtvwidget.view.RelativeMainLayout>
         </com.open.androidtvwidget.view.SmoothHorizontalScrollView>
 
         <com.open.androidtvwidget.view.MainUpView

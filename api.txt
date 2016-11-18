@@ -1,0 +1,49 @@
+Host: http://43.241.224.161
+//首页数据
+Get /api/index 
+//数据检查更新
+Get /btmovie/CheckForUpdate?vcode=411&pcode=0 
+//首页分类更多
+Get /api/more_douban_topic_items?page=1&pageSize=21&id=movie_free_stream 
+//单个电影获取M3U8链接播放
+Get /btmovie/MoviePlay.m3u8?movieid=26597953 
+
+
+//影视（分类）
+Get /api/videosfilter?type=1
+//电视剧（分类）
+Get /api/videosfilter?type=2
+//动漫（分类）
+Get /api/videosfilter?type=3
+//综艺（分类）
+Get /api/videosfilter?type=4
+
+
+//默认（电影）全部
+Get /api/videos 
+//分类列表
+Post /api/videos
+Content-Type:application/x-www-form-urlencoded
+body{
+	genre="全部(剧情)";
+	country="全部（地区）";
+	pageSize=30;
+	sortby=time|score;
+	type=1;
+	page=2;
+	year="全部（年代）";
+}
+//单个获取M3U8链接播放
+Get btmovie/MoviePlay.m3u8?movieid=5209484&index=1(第几集)
+
+
+//直播 列表
+//Get /api/tvlives 
+
+//Get /api/tvepgs?videoId=18793
+
+//Host:bsy.pp.starschinalive.com
+//Get /video/14395321695744458/UHD/582e62d9.pp
+
+//Host:conf.vbyte.cn
+//Get /api/v1/live/mobile/14395321695744458
