@@ -5,4 +5,7 @@
     <dimen name="w_100">100px</dimen>
     <dimen name="sp_25">25sp</dimen>
     <dimen name="sp_30">30sp</dimen>
+    <dimen name="w_200">200dp</dimen>
+    <dimen name="w_45">45dp</dimen>
+    <dimen name="h_40">40dp</dimen>
 </resources>
