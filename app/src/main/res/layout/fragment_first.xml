@@ -8,14 +8,23 @@
     <com.open.androidtvwidget.view.ListViewTV
         android:id="@+id/type_list"
         android:layout_width="200dp"
-        android:background="#8956ef47"
         android:layout_height="match_parent"
+        android:background="#8956ef47"
         tools:listitem="@layout/item_type_list" />
 
-    <GridView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#8956ef47" />
+
+    <com.open.androidtvwidget.view.GridViewTV
         android:id="@+id/content_grid"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:numColumns="auto_fit"
         tools:listitem="@layout/item_normal_content" />
 </LinearLayout>

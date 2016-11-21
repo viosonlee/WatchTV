@@ -4,7 +4,7 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "lee.vioson.watchtv"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -37,8 +37,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.0'
     testCompile 'junit:junit:4.12'
     compile project(':androidtvwidget')
-//    compile project(':vitamio')
-//    compile project(':vitamio-sample')
+    compile project(':playersdk')
     //rxjava
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
