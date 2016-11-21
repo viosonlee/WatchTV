@@ -15,6 +15,7 @@ android {
             enabled true
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -36,7 +37,8 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.0'
     testCompile 'junit:junit:4.12'
     compile project(':androidtvwidget')
-    compile project(':vitamio')
+//    compile project(':vitamio')
+//    compile project(':vitamio-sample')
     //rxjava
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
@@ -47,4 +49,6 @@ dependencies {
 
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile 'com.google.android.exoplayer:exoplayer:r2.0.4'
 }

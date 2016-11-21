@@ -1,12 +1,12 @@
 package lee.vioson.watchtv.UI.activities;
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import lee.vioson.watchtv.R;
 import lee.vioson.watchtv.UI.adapters.MainFragmentPagerAdapter;
 import lee.vioson.watchtv.UI.fragments.FirstFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private ViewPager fragmentPager;
     private MainFragmentPagerAdapter fragmentPagerAdapter;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         tab1 = (TextView) findViewById(R.id.tab1);
         tab2 = (TextView) findViewById(R.id.tab2);
         tabBar.getViewTreeObserver().addOnGlobalFocusChangeListener((oldView, newView) -> {
-                    Toast.makeText(MainActivity.this, newView.getTag() + "", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, newView.getTag() + "", Toast.LENGTH_SHORT).show();
                     try {
                         fragmentPager.setCurrentItem(Integer.parseInt((String)newView.getTag()));
                     } catch (Exception e) {
