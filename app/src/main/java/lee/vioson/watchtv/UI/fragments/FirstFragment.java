@@ -89,5 +89,8 @@ public class FirstFragment extends Fragment implements Observer<HomeData> {
                 helper.setText(R.id.type, item.name);
             }
         });
+
+        typeList.setChoiceMode(ListView.FOCUSABLES_TOUCH_MODE);
+
     }
 }
