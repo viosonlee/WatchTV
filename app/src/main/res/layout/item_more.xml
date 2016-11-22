@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
-        android:textSize="50sp"
-        android:textColor="@color/text_color_black"
         android:layout_height="wrap_content"
-        android:text="更多" />
+        android:text="更多"
+        android:textColor="@color/text_color_black"
+        android:textSize="50sp" />
 </LinearLayout>

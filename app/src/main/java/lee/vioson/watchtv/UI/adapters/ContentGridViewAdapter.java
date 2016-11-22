@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import lee.vioson.watchtv.R;
+import lee.vioson.watchtv.UI.listeners.OnMoreListClickListener;
 import lee.vioson.watchtv.model.pojo.homeData.Movie;
 
 /**
@@ -52,8 +53,8 @@ public class ContentGridViewAdapter extends BaseAdapter {
         if (i == getCount() - 1) {
             view = LayoutInflater.from(context).inflate(R.layout.item_more, null);
             view.setOnClickListener(view1 -> {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onMoreClick();
+                if (onMoreListClickListener != null) {
+                    onMoreListClickListener.onMoreClick();
                 }
             });
         } else {
@@ -72,8 +73,8 @@ public class ContentGridViewAdapter extends BaseAdapter {
             Picasso.with(context).load(mData.get(i).img).into(holder.pic);
             View finalView = view;
             view.setOnClickListener(view1 -> {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(i, finalView);
+                if (onMoreListClickListener != null) {
+                    onMoreListClickListener.onItemClick(i, finalView);
                 }
             });
         }
@@ -85,15 +86,11 @@ public class ContentGridViewAdapter extends BaseAdapter {
         private ImageView pic;
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
+    public void setOnMoreListClickListener(OnMoreListClickListener onMoreListClickListener) {
+        this.onMoreListClickListener = onMoreListClickListener;
     }
 
-    private OnItemClickListener onItemClickListener;
+    private OnMoreListClickListener onMoreListClickListener;
 
-    public interface OnItemClickListener {
-        void onItemClick(int position, View view);
 
-        void onMoreClick();
-    }
 }

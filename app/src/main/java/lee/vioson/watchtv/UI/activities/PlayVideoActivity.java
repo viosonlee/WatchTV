@@ -55,7 +55,7 @@ public class PlayVideoActivity extends Activity {
 
     private void initView() {
         progressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
-        progressWheel.setVisibility(View.VISIBLE);
+        progressWheel.postDelayed(() -> progressWheel.setVisibility(View.VISIBLE),500);
         videoView = (VideoView) findViewById(R.id.video_view);
         if (movie != null) {
             String movieUrl = PlayUrlUtil.getMovieUrl(movie.movieId + "");
@@ -81,9 +81,9 @@ public class PlayVideoActivity extends Activity {
                 }
                 return true;
             });
-            videoView.setOnCompletionListener(mediaPlayer -> {
-                Toast.makeText(this, "播放完成", Toast.LENGTH_SHORT).show();
-            });
+//            videoView.setOnCompletionListener(mediaPlayer -> {
+//                Toast.makeText(this, "播放完成", Toast.LENGTH_SHORT).show();
+//            });
             if (Build.VERSION.SDK_INT >= 17) {
                 videoView.setOnInfoListener((mediaPlayer, i, i1) -> {
                     Log.i(getClass().getSimpleName(), "i--" + i + "i1--" + i1);

@@ -13,6 +13,8 @@ Get /api/doulist_items?id=968362&page=1&pageSize=20
 //单个电影获取M3U8链接播放
 Get /btmovie/MoviePlay.m3u8?movieid=26597953 
 
+//搜索
+/api/videos?keywords="变形金刚"
 
 //影视（分类）
 Get /api/videosfilter?type=1

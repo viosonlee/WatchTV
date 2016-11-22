@@ -18,4 +18,10 @@ public class ActivitySwitcher {
         intent.putExtra(PlayVideoActivity.MOVIE_DATA, movie);
         context.startActivity(intent);
     }
+
+    public static void toMovieList(Context context, String typeID) {
+        Intent intent = new Intent(context,MovieListActivity.class);
+        intent.putExtra(MovieListActivity.ID,typeID);
+        context.startActivity(intent);
+    }
 }

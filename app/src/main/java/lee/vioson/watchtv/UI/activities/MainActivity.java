@@ -14,6 +14,8 @@ import java.util.List;
 import lee.vioson.watchtv.R;
 import lee.vioson.watchtv.UI.adapters.MainFragmentPagerAdapter;
 import lee.vioson.watchtv.UI.fragments.FirstFragment;
+import lee.vioson.watchtv.UI.fragments.FirstFragmentNew;
+import lee.vioson.watchtv.UI.fragments.TypeFragment;
 
 public class MainActivity extends FragmentActivity {
 
@@ -35,9 +37,9 @@ public class MainActivity extends FragmentActivity {
 
     private void initViewPager() {
         fragmentPager = (ViewPager) findViewById(R.id.fragment_pager);
-        FirstFragment firstFragment = FirstFragment.newInstance();
-        FirstFragment firstFragment1 = FirstFragment.newInstance();
-        FirstFragment firstFragment2 = FirstFragment.newInstance();
+        TypeFragment firstFragment = TypeFragment.newInstance();
+        FirstFragmentNew firstFragment1 = FirstFragmentNew.newInstance();
+        FirstFragmentNew firstFragment2 = FirstFragmentNew.newInstance();
 
         fragmentList.add(firstFragment);
         fragmentList.add(firstFragment1);
@@ -55,7 +57,7 @@ public class MainActivity extends FragmentActivity {
         tabBar.getViewTreeObserver().addOnGlobalFocusChangeListener((oldView, newView) -> {
 //                    Toast.makeText(MainActivity.this, newView.getTag() + "", Toast.LENGTH_SHORT).show();
                     try {
-                        fragmentPager.setCurrentItem(Integer.parseInt((String)newView.getTag()));
+                        fragmentPager.setCurrentItem(Integer.parseInt((String) newView.getTag()));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

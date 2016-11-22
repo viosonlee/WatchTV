@@ -8,4 +8,8 @@
     <dimen name="w_200">200dp</dimen>
     <dimen name="w_45">45dp</dimen>
     <dimen name="h_40">40dp</dimen>
+    <dimen name="d_10">10dp</dimen>
+    <dimen name="d_5">5dp</dimen>
+    <dimen name="d_15">15dp</dimen>
+    <dimen name="progress_size">50dp</dimen>
 </resources>

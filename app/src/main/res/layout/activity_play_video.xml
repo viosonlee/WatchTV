@@ -12,8 +12,8 @@
         android:layout_height="match_parent" />
     <lee.vioson.watchtv.widgets.customViews.ProgressWheel
         android:id="@+id/progress_wheel"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/progress_size"
+        android:layout_height="@dimen/progress_size"
         wheel:matProg_barColor="@color/card_normal_deep_green"
         wheel:matProg_progressIndeterminate="true"
         android:layout_centerInParent="true" />

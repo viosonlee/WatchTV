@@ -5,8 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="text_color_red">#e9222c</color>
     <color name="text_color_orange">#f46607</color>
+    <color name="text_color_yellow">#d8f407</color>
+
     <color name="text_color_gray">#60ff4607</color>
     <color name="card_normal_deep_green">#40ca70</color>
     <color name="card_normal_green" >#027029</color>
     <color name="text_color_black">#333333</color>
+    <color name="white">#ffffff</color>
 </resources>

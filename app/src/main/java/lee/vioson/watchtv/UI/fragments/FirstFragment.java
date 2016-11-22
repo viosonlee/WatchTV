@@ -30,6 +30,7 @@ import java.util.List;
 import lee.vioson.watchtv.R;
 import lee.vioson.watchtv.UI.activities.ActivitySwitcher;
 import lee.vioson.watchtv.UI.adapters.ContentGridViewAdapter;
+import lee.vioson.watchtv.UI.listeners.OnMoreListClickListener;
 import lee.vioson.watchtv.model.WebDataHelper;
 import lee.vioson.watchtv.model.pojo.homeData.HomeData;
 import lee.vioson.watchtv.model.pojo.homeData.Movie;
@@ -143,7 +144,7 @@ public class FirstFragment extends Fragment implements Observer<HomeData> {
         ContentGridViewAdapter adapter = new ContentGridViewAdapter(topicMovieSet.subjects, getActivity());
         contentGrid.setAdapter(adapter);
         contentGrid.clearFocus();
-        adapter.setOnItemClickListener(new ContentGridViewAdapter.OnItemClickListener() {
+        adapter.setOnMoreListClickListener(new OnMoreListClickListener() {
             @Override
             public void onItemClick(int position, View view) {
                 ActivitySwitcher.toPlayMovie(getActivity(), topicMovieSet.subjects.get(position));
