@@ -38,7 +38,7 @@ import rx.Observer;
  * FIXME
  * Todo
  */
-
+@Deprecated
 public class FirstFragmentNew extends Fragment implements Observer<HomeData> {
 
     private RecyclerViewTV leftMenuRv;

@@ -102,6 +102,11 @@ public class TypeFragment extends Fragment implements Observer<HomeData> {
                 return R.layout.item_type;
             }
 
+            @Override
+            protected OnItemClickListener getOnItemClickListener() {
+                return (view, position) -> ActivitySwitcher.toMovieList(getActivity(),
+                        doubanTopicList.get(position).id);
+            }
         });
         typeList.setOnItemListener(new RecyclerViewTV.OnItemListener() {
             @Override
@@ -122,7 +127,7 @@ public class TypeFragment extends Fragment implements Observer<HomeData> {
         typeList.setOnItemClickListener((parent, itemView, position) -> {
             mRecyclerViewBridge.setFocusView(itemView, 1.2f);
             //跳转
-            ActivitySwitcher.toMovieList(getActivity(),doubanTopicList.get(position).id);
+            ActivitySwitcher.toMovieList(getActivity(), doubanTopicList.get(position).id);
         });
     }
 }

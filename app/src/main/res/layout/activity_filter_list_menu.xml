@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_menu_trans_selecter"
+            android:gravity="center"
+            android:padding="@dimen/d_10"
+            android:tag="0"
+            android:text="排行"
+            android:textColor="@drawable/normal_text_color_selecter" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/sort"
+            android:background="@drawable/bg_menu_trans_selecter"
+            android:padding="@dimen/d_10"
+            android:tag="1"
+            android:text="剧情"
+            android:textColor="@drawable/normal_text_color_selecter" />
+
+        <TextView
+            android:id="@+id/area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sort"
+            android:background="@drawable/bg_menu_trans_selecter"
+            android:padding="@dimen/d_10"
+            android:tag="2"
+            android:text="地区"
+            android:textColor="@drawable/normal_text_color_selecter" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/type"
+            android:layout_toRightOf="@id/area"
+            android:background="@drawable/bg_menu_trans_selecter"
+            android:padding="@dimen/d_10"
+            android:tag="3"
+            android:text="年代"
+            android:textColor="@drawable/normal_text_color_selecter" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/sort_list"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:visibility="visible" />
+
+        <ListView
+            android:id="@+id/type_list"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/area_list"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/time_list"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

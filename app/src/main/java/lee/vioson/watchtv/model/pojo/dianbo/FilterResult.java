@@ -3,6 +3,7 @@ package lee.vioson.watchtv.model.pojo.dianbo;
 import java.util.List;
 
 import lee.vioson.watchtv.model.pojo.BaseResult;
+import lee.vioson.watchtv.model.pojo.homeData.Movie;
 
 /**
  * Author:李烽
@@ -15,7 +16,7 @@ public class FilterResult extends BaseResult {
 
     public List<Result> body;
 
-    public static class Result {
+    public static class Result extends Movie{
         /**
          * album : false
          * commentPageNum : 0
@@ -33,17 +34,17 @@ public class FilterResult extends BaseResult {
          * updateTime :
          */
 
-        public boolean album;
+//        public boolean album;
         public int commentPageNum;
         public String doubanId;
         public int hot;
-        public String img;
+//        public String img;
         public String lastUpdateTime;
-        public int movieId;
+//        public int movieId;
         public String movieTypeName;
-        public String name;
+//        public String name;
         public int publishTime;
-        public double score;
+//        public double score;
         public int scoreNum;
         public String status;
         public String updateTime;

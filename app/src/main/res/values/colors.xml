@@ -12,4 +12,5 @@
     <color name="card_normal_green" >#027029</color>
     <color name="text_color_black">#333333</color>
     <color name="white">#ffffff</color>
+    <color name="tans">#00000000</color>
 </resources>

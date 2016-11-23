@@ -50,7 +50,7 @@ import util.PlayerConst;
  * FIXME
  * Todo
  */
-
+@Deprecated
 public class FirstFragment extends Fragment implements Observer<HomeData> {
     private ListViewTV typeList;
     private GridView contentGrid;

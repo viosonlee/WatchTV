@@ -78,9 +78,6 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
             }
         });
         movieList.setOnItemListener(new MyOnItemListener(mRecyclerViewBridge));
-        movieList.setPagingableListener(() -> {
-//            loadMore();
-        });
         movieList.addOnScrollListener(new UpLoadListener(gridLayoutManagerTV) {
             @Override
             protected void onLoadMore() {
@@ -100,7 +97,7 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
     private void initView() {
         movieList = (RecyclerViewTV) findViewById(R.id.movie_list);
         progressBar = (ProgressWheel) findViewById(R.id.progress_bar);
-        progressBar.postDelayed(() -> progressBar.setVisibility(View.VISIBLE), 500);
+        progressBar.postDelayed(() -> progressBar.setVisibility(View.VISIBLE), 50);
         mainUpView1 = (MainUpView) findViewById(R.id.mainUpView1);
         mainUpView1.setEffectBridge(new RecyclerViewBridge());
         mRecyclerViewBridge = (RecyclerViewBridge) mainUpView1.getEffectBridge();
@@ -113,7 +110,7 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
 
     @Override
     public void onCompleted() {
-        progressBar.postDelayed(() -> progressBar.setVisibility(View.GONE), 500);
+        progressBar.postDelayed(() -> progressBar.setVisibility(View.GONE), 50);
     }
 
     @Override
@@ -132,6 +129,7 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
             mData.clear();
         mData.addAll(data.body);
         movieList.getAdapter().notifyDataSetChanged();
+        movieList.getChildAt(0).requestFocus();
     }
 
     private void loadMore() {

@@ -44,8 +44,12 @@
                 />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.activities.MovieListActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".UI.activities.MovieListActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".UI.activities.FilterListActivity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

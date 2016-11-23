@@ -3,6 +3,7 @@ package lee.vioson.watchtv.UI.activities;
 import android.content.Context;
 import android.content.Intent;
 
+import lee.vioson.watchtv.model.CommonType;
 import lee.vioson.watchtv.model.pojo.homeData.Movie;
 
 /**
@@ -20,8 +21,32 @@ public class ActivitySwitcher {
     }
 
     public static void toMovieList(Context context, String typeID) {
-        Intent intent = new Intent(context,MovieListActivity.class);
-        intent.putExtra(MovieListActivity.ID,typeID);
+        Intent intent = new Intent(context, MovieListActivity.class);
+        intent.putExtra(MovieListActivity.ID, typeID);
+        context.startActivity(intent);
+    }
+
+    public static void toFilterMovie(Context context) {
+        Intent intent = new Intent(context, FilterListActivity.class);
+        intent.putExtra(FilterListActivity.TYPE, CommonType.MOVIE);
+        context.startActivity(intent);
+    }
+
+    public static void toFilterTV(Context context) {
+        Intent intent = new Intent(context, FilterListActivity.class);
+        intent.putExtra(FilterListActivity.TYPE, CommonType.TV);
+        context.startActivity(intent);
+    }
+
+    public static void toFilterCarton(Context context) {
+        Intent intent = new Intent(context, FilterListActivity.class);
+        intent.putExtra(FilterListActivity.TYPE, CommonType.CARTON);
+        context.startActivity(intent);
+    }
+
+    public static void toFilterVariety(Context context) {
+        Intent intent = new Intent(context, FilterListActivity.class);
+        intent.putExtra(FilterListActivity.TYPE, CommonType.VARIETY);
         context.startActivity(intent);
     }
 }

@@ -7,4 +7,5 @@
     <string name="score">评分：</string>
     <string name="two_click_exit">再按一次退出</string>
     <string name="no_more">没有更多了</string>
+    <string name="all">全部</string>
 </resources>
