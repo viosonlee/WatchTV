@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.exoplayer.C;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +63,6 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         tab1.setOnClickListener((v) -> fragmentPager.setCurrentItem(1));
         tab2.setOnClickListener((v) -> fragmentPager.setCurrentItem(2));
         tabBar.getViewTreeObserver().addOnGlobalFocusChangeListener((oldView, newView) -> {
-//                    Toast.makeText(MainActivity.this, newView.getTag() + "", Toast.LENGTH_SHORT).show();
                     try {
                         fragmentPager.setCurrentItem(Integer.parseInt((String) newView.getTag()));
                     } catch (Exception e) {

@@ -13,6 +13,7 @@ import com.open.androidtvwidget.bridge.EffectNoDrawBridge;
 import com.open.androidtvwidget.view.MainUpView;
 
 import lee.vioson.watchtv.R;
+import lee.vioson.watchtv.UI.activities.ActivitySwitcher;
 
 /**
  * Author:李烽
@@ -41,8 +42,8 @@ public class OnlineTVFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
+        initEvent();
     }
-
 
     public static OnlineTVFragment newInstance() {
 
@@ -52,6 +53,7 @@ public class OnlineTVFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
 
     private void initView(View view) {
         cctv = (LinearLayout) view.findViewById(R.id.cctv);
@@ -67,5 +69,9 @@ public class OnlineTVFragment extends Fragment {
             noDrawBridge.setFocusView(view1, view12, 1.2f);
         });
 
+    }
+
+    private void initEvent() {
+        cctv.setOnClickListener(view -> ActivitySwitcher.toOnlineTV(getContext()));
     }
 }

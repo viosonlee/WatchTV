@@ -50,7 +50,7 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
     }
 
     private void initRecyclerView() {
-        GridLayoutManagerTV gridLayoutManagerTV = new GridLayoutManagerTV(this, 4);
+        GridLayoutManagerTV gridLayoutManagerTV = new GridLayoutManagerTV(this, 3);
         gridLayoutManagerTV.setOrientation(GridLayoutManagerTV.VERTICAL);
         movieList.setLayoutManager(gridLayoutManagerTV);
         movieList.setFocusable(false);
@@ -91,31 +91,30 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
 
     private void loadData() {
         page = INIT_PAGE;
+        progressBar.setVisibility(View.VISIBLE);
         WebDataHelper.getMoreTopicMovieItems(page, id, this);
     }
 
     private void initView() {
         movieList = (RecyclerViewTV) findViewById(R.id.movie_list);
         progressBar = (ProgressWheel) findViewById(R.id.progress_bar);
-        progressBar.postDelayed(() -> progressBar.setVisibility(View.VISIBLE), 50);
         mainUpView1 = (MainUpView) findViewById(R.id.mainUpView1);
         mainUpView1.setEffectBridge(new RecyclerViewBridge());
         mRecyclerViewBridge = (RecyclerViewBridge) mainUpView1.getEffectBridge();
         mRecyclerViewBridge.setUpRectResource(R.drawable.white_light_10);
-        float density = getResources().getDisplayMetrics().density;
-        RectF receF = new RectF(0, DimenUtil.getDimension(this, R.dimen.d_15) * density, 0,
-                DimenUtil.getDimension(this, R.dimen.d_5) * density);
+        float dimension = getResources().getDimension(R.dimen.d_15);
+        RectF receF = new RectF(dimension, dimension, dimension, dimension);
         mRecyclerViewBridge.setDrawUpRectPadding(receF);
     }
 
     @Override
     public void onCompleted() {
-        progressBar.postDelayed(() -> progressBar.setVisibility(View.GONE), 50);
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
     public void onError(Throwable e) {
-
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -129,7 +128,7 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
             mData.clear();
         mData.addAll(data.body);
         movieList.getAdapter().notifyDataSetChanged();
-        movieList.getChildAt(0).requestFocus();
+        progressBar.setVisibility(View.GONE);
     }
 
     private void loadMore() {

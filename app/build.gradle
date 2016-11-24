@@ -37,7 +37,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.0'
     testCompile 'junit:junit:4.12'
     compile project(':androidtvwidget')
-    compile project(':playersdk')
+//    compile project(':playersdk')
     //rxjava
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'

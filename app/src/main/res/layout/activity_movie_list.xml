@@ -22,6 +22,7 @@
             android:id="@+id/progress_bar"
             android:layout_width="@dimen/progress_size"
             android:layout_height="@dimen/progress_size"
+            android:visibility="gone"
             android:layout_centerInParent="true"
             wheel:matProg_barColor="@color/card_normal_deep_green"
             wheel:matProg_progressIndeterminate="true" />

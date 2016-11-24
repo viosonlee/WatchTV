@@ -50,7 +50,6 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center"
-            android:nextFocusForward="@+id/tab0"
             android:tag="2"
             android:text="直播"
             android:textSize="30sp" />

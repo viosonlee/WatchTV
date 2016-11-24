@@ -2,46 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:background="#3968ed56"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <TextView
+        <CheckedTextView
             android:id="@+id/sort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_menu_trans_selecter"
             android:gravity="center"
             android:padding="@dimen/d_10"
             android:tag="0"
-            android:text="排行"
+            android:background="@drawable/bg_menu_trans_selecter_2"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:text="最新"
             android:textColor="@drawable/normal_text_color_selecter" />
 
-        <TextView
+        <CheckedTextView
             android:id="@+id/type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/sort"
             android:background="@drawable/bg_menu_trans_selecter"
             android:padding="@dimen/d_10"
-            android:tag="1"
+            android:tag="1" android:focusableInTouchMode="true"
+            android:focusable="true"
             android:text="剧情"
             android:textColor="@drawable/normal_text_color_selecter" />
 
-        <TextView
+        <CheckedTextView
             android:id="@+id/area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/sort"
             android:background="@drawable/bg_menu_trans_selecter"
             android:padding="@dimen/d_10"
-            android:tag="2"
+            android:tag="2" android:focusableInTouchMode="true"
+            android:focusable="true"
             android:text="地区"
             android:textColor="@drawable/normal_text_color_selecter" />
 
-        <TextView
+        <CheckedTextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +55,8 @@
             android:layout_toRightOf="@id/area"
             android:background="@drawable/bg_menu_trans_selecter"
             android:padding="@dimen/d_10"
-            android:tag="3"
+            android:tag="3" android:focusableInTouchMode="true"
+            android:focusable="true"
             android:text="年代"
             android:textColor="@drawable/normal_text_color_selecter" />
     </RelativeLayout>
@@ -59,29 +66,22 @@
         android:layout_height="wrap_content">
 
         <ListView
-            android:id="@+id/sort_list"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:visibility="visible" />
-
-        <ListView
             android:id="@+id/type_list"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
             android:visibility="gone" />
 
         <ListView
             android:id="@+id/area_list"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
             android:visibility="gone" />
 
         <ListView
             android:id="@+id/time_list"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
             android:visibility="gone" />

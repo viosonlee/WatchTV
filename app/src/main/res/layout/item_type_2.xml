@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.open.androidtvwidget.view.ReflectItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_margin="65dp"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    app:isReflect="true"
+    app:isShape="true">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dianying" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/text_color_gray"
+        android:padding="5dp"
+        android:text="免费电影"
+        android:gravity="center"
+        android:textColor="@drawable/normal_text_color_selecter"
+        android:textSize="25sp" />
+</com.open.androidtvwidget.view.ReflectItemView>

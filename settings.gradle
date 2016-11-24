@@ -1,1 +1,1 @@
-include ':app', ':androidtvwidget', ':playersdk'
+include ':app', ':androidtvwidget'/*, ':playersdk'*/

@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:background="@drawable/main_bg"
     android:orientation="vertical">
 
     <TableLayout
@@ -26,19 +26,24 @@
                 android:layout_marginRight="60dp"
                 android:layout_marginTop="60dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_normal_card"
+                android:background="@drawable/bg_db_carton"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:gravity="center"
                 android:padding="15dp">
 
-                <TextView
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_cctv" />
 
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="央视频道"
                     android:textColor="@drawable/normal_text_color_selecter"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -50,18 +55,24 @@
                 android:layout_marginRight="60dp"
                 android:layout_marginTop="60dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_normal_card"
+                android:background="@drawable/bg_db_zongyi"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:gravity="center"
                 android:padding="15dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_weishi" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="卫视频道"
                     android:textColor="@drawable/normal_text_color_selecter"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    android:visibility="gone" />
             </LinearLayout>
         </TableRow>
 
@@ -79,19 +90,24 @@
                 android:layout_marginRight="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_normal_card"
+                android:background="@drawable/bg_db_tv"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:gravity="center"
                 android:padding="15dp">
 
-                <TextView
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_local" />
 
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="本地频道"
                     android:textColor="@drawable/normal_text_color_selecter"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -103,19 +119,24 @@
                 android:layout_marginRight="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_normal_card"
+                android:background="@drawable/bg_db_movie"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:gravity="center"
                 android:padding="15dp">
 
-                <TextView
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_other" />
 
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="其他频道"
                     android:textColor="@drawable/normal_text_color_selecter"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    android:visibility="gone" />
             </LinearLayout>
         </TableRow>
     </TableLayout>

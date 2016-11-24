@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.open.androidtvwidget.view.ReflectItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="65dp"
     android:focusable="true"
-    android:gravity="center"
     android:focusableInTouchMode="true"
-    android:orientation="vertical">
+    android:gravity="center"
+    android:orientation="vertical"
+    app:isReflect="true"
+    app:isShape="true">
 
     <ImageView
         android:id="@+id/pic"
-        android:layout_width="255dp"
+        android:layout_width="match_parent"
         android:layout_height="410dp"
         android:scaleType="fitXY" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/text_color_black"
-        android:textSize="28sp"
-        tools:text="不要玩手机了" />
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/card_normal_green_trans"
+        android:orientation="vertical"
+        android:padding="@dimen/d_10">
 
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_color_red"
-        android:textSize="26sp"
-        tools:text="评分：5.6" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/score"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/text_color_yellow"
+            android:textSize="28sp"
+            tools:text="不要玩手机了" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_red"
+            android:textSize="26sp"
+            tools:text="评分：5.6" />
+    </LinearLayout>
+</com.open.androidtvwidget.view.ReflectItemView>

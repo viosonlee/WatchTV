@@ -26,7 +26,7 @@ import lee.vioson.watchtv.UI.activities.ActivitySwitcher;
  * Todo 点播
  */
 
-public class DianBoFragment extends Fragment {
+public class DianBoFragment extends Fragment implements View.OnClickListener {
     private android.widget.LinearLayout movie;
     private android.widget.LinearLayout tv;
     private android.widget.LinearLayout carton;
@@ -74,9 +74,28 @@ public class DianBoFragment extends Fragment {
     }
 
     public void initEvent() {
-        movie.setOnClickListener((v) -> ActivitySwitcher.toFilterMovie(getContext()));
-        tv.setOnClickListener((v) -> ActivitySwitcher.toFilterTV(getContext()));
-        carton.setOnClickListener((v) -> ActivitySwitcher.toFilterCarton(getContext()));
-        variety.setOnClickListener((v) -> ActivitySwitcher.toFilterVariety(getContext()));
+        movie.setOnClickListener(this);
+        tv.setOnClickListener(this);
+        carton.setOnClickListener(this);
+        variety.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.movie:
+                ActivitySwitcher.toFilterMovie(getContext());
+                break;
+            case R.id.tv:
+                ActivitySwitcher.toFilterTV(getContext());
+                break;
+            case R.id.carton:
+                ActivitySwitcher.toFilterCarton(getContext());
+                break;
+            case R.id.variety:
+                ActivitySwitcher.toFilterVariety(getContext());
+                break;
+
+        }
     }
 }

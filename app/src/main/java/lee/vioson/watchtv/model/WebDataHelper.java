@@ -1,5 +1,8 @@
 package lee.vioson.watchtv.model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import lee.vioson.watchtv.BuildConfig;
 import lee.vioson.watchtv.model.api.IApi;
 import lee.vioson.watchtv.model.pojo.Video;
@@ -9,10 +12,13 @@ import lee.vioson.watchtv.model.pojo.dianbo.FilterResult;
 import lee.vioson.watchtv.model.pojo.homeData.HomeData;
 import lee.vioson.watchtv.model.pojo.homeData.MovieList;
 import lee.vioson.watchtv.model.pojo.homeData.MovieSetList;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observer;
+import rx.SingleSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -25,11 +31,13 @@ import rx.schedulers.Schedulers;
 
 public class WebDataHelper {
     private static IApi iApi;
-
+    private static OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
+            (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
     private static IApi getiApi() {
         if (iApi == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BuildConfig.HOST)
+                    .client(okHttpClient)
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
@@ -111,7 +119,7 @@ public class WebDataHelper {
      * @param type
      * @param observer
      */
-    public static void getDianboFilter(int type, Observer<DianBoFilter> observer) {
+    public static void getDianboFilter(int type, SingleSubscriber<DianBoFilter> observer) {
         getiApi().getDianboFilter(type)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

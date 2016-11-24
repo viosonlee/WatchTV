@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/type"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:gravity="center_vertical"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:lines="1"
-        android:textColor="@color/card_normal_green"
-        android:textSize="15sp"
-        tools:text="最新最新最新最新最新" />
-</LinearLayout>
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_menu_trans_selecter"
+    android:checked="true"
+    android:gravity="center"
+    android:lines="1"
+    android:padding="@dimen/d_15"
+    android:textColor="@drawable/normal_text_color_selecter"
+    android:textSize="15sp"
+    tools:text="最新最新最新最新最新" />

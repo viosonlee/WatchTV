@@ -7,60 +7,44 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import lee.vioson.watchtv.R;
-import lee.vioson.watchtv.model.pojo.homeData.Movie;
-import lee.vioson.watchtv.utils.AudioUtil;
-import lee.vioson.watchtv.utils.PlayUrlUtil;
 import lee.vioson.watchtv.widgets.customViews.ProgressWheel;
 
-/**
- * Author:李烽
- * Date:2016-11-21
- * FIXME
- * Todo 播放视频
- */
+public class OnlineTVActivity extends Activity {
 
-public class PlayVideoActivity extends Activity {
-    public static final String MOVIE_DATA = "movie_data";
-    private static final int CHECK_STATE = 00;
+    private static final String URL = "url";
+    private static final int CHECK_STATE = 001;
     private VideoView videoView;
-    private Movie movie;
-    private int savePosition;//保存进度
     private ProgressWheel progressWheel;
-    private int old_duration = 0;
-    private Runnable runnable;
+    private String url;//当前的电视台url
+    private int savePosition;
     private CheckStateHandler handler;
+    private Runnable runnable;
+    private int old_duration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play_video);
-        initMovie();
+        setContentView(R.layout.activity_online_tv);
+        url = getUrl();
         initView();
         setStateListener();
-    }
-
-    private void initMovie() {
-        if (getIntent() != null) {
-            movie = (Movie) getIntent().getSerializableExtra(MOVIE_DATA);
-        }
     }
 
     private void initView() {
         progressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
         videoView = (VideoView) findViewById(R.id.video_view);
-        if (movie != null) {
-            String movieUrl = PlayUrlUtil.getMovieUrl(movie.movieId + "");
-            videoView.setVideoPath(movieUrl);
-            Log.d(getClass().getSimpleName(), movieUrl);
-            videoView.setMediaController(new MediaController(this));
+        //测试地址
+        url = "http://live.3gv.ifeng.com/live/zhongwen.m3u8";
+        if (url != null) {
+            videoView.setVideoPath(url);
+            Log.d(getClass().getSimpleName(), url);
+//            videoView.setMediaController(new MediaController(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.FILL_PARENT,
                     RelativeLayout.LayoutParams.FILL_PARENT);
@@ -84,35 +68,13 @@ public class PlayVideoActivity extends Activity {
                 }
                 return true;
             });
-            videoView.setOnCompletionListener(mediaPlayer -> {
-                Toast.makeText(PlayVideoActivity.this, "播放完成", Toast.LENGTH_SHORT).show();
-            });
             if (Build.VERSION.SDK_INT >= 17) {
                 videoView.setOnInfoListener((mediaPlayer, i, i1) -> {
                     Log.i(getClass().getSimpleName(), "i--" + i + "i1--" + i1);
                     return false;
                 });
             }
-
         }
-
-    }
-
-    private void setStateListener() {
-        handler = new CheckStateHandler();
-        runnable = () -> {
-            int duration = videoView.getCurrentPosition();
-            if (old_duration == duration && videoView.isPlaying()) {
-                progressWheel.setVisibility(View.VISIBLE);
-            } else {
-                progressWheel.setVisibility(View.GONE);
-            }
-            old_duration = duration;
-
-            handler.sendEmptyMessage(CHECK_STATE);
-        };
-        handler.postDelayed(runnable, 0);
-
     }
 
     long now = 0;
@@ -149,11 +111,6 @@ public class PlayVideoActivity extends Activity {
         super.onResume();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
     private void toggle() {
         boolean playing = videoView.isPlaying();
         if (playing)
@@ -161,49 +118,25 @@ public class PlayVideoActivity extends Activity {
         else videoView.start();
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            switch (keyCode) {
-                case KeyEvent.KEYCODE_DPAD_CENTER:
-                    Log.i(getClass().getSimpleName(), "KEYCODE_DPAD_CENTER");
-                    toggle();
-                    break;
-                case KeyEvent.KEYCODE_ENTER:
-                    Log.i(getClass().getSimpleName(), "KEYCODE_ENTER");
-                    toggle();
-                    break;
-                case KeyEvent.KEYCODE_DPAD_UP:
-                    Log.i(getClass().getSimpleName(), "KEYCODE_DPAD_UP");
-                    AudioUtil.setVoiceVolume(this, true);
-                    return true;
-                case KeyEvent.KEYCODE_DPAD_DOWN:
-                    Log.i(getClass().getSimpleName(), "KEYCODE_DPAD_DOWN");
-                    AudioUtil.setVoiceVolume(this, false);
-                    return true;
-                case KeyEvent.KEYCODE_DPAD_LEFT:
-                    Log.i(getClass().getSimpleName(), "KEYCODE_DPAD_LEFT");
-                    seekToBack();
-                    return true;
-                case KeyEvent.KEYCODE_DPAD_RIGHT:
-                    Log.i(getClass().getSimpleName(), "KEYCODE_DPAD_RIGHT");
-                    seekToAword();
-                    return true;
+    public String getUrl() {
+        return getIntent().getStringExtra(URL);
+    }
+
+    private void setStateListener() {
+        handler = new CheckStateHandler();
+        runnable = () -> {
+            int duration = videoView.getCurrentPosition();
+            if (old_duration == duration && videoView.isPlaying()) {
+                progressWheel.setVisibility(View.VISIBLE);
+            } else {
+                progressWheel.setVisibility(View.GONE);
             }
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+            old_duration = duration;
 
-    private void seekToAword() {
-        int currentPosition = videoView.getCurrentPosition();
-        currentPosition += 2;
-        videoView.seekTo(currentPosition);
-    }
+            handler.sendEmptyMessage(CHECK_STATE);
+        };
+        handler.postDelayed(runnable, 0);
 
-    private void seekToBack() {
-        int currentPosition = videoView.getCurrentPosition();
-        currentPosition -= 2;
-        videoView.seekTo(currentPosition);
     }
 
     class CheckStateHandler extends Handler {

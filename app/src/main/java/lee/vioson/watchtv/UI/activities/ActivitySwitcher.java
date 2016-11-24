@@ -3,6 +3,7 @@ package lee.vioson.watchtv.UI.activities;
 import android.content.Context;
 import android.content.Intent;
 
+import lee.vioson.watchtv.UI.fragments.OnlineTVFragment;
 import lee.vioson.watchtv.model.CommonType;
 import lee.vioson.watchtv.model.pojo.homeData.Movie;
 
@@ -17,6 +18,11 @@ public class ActivitySwitcher {
     public static void toPlayMovie(Context context, Movie movie) {
         Intent intent = new Intent(context, PlayVideoActivity.class);
         intent.putExtra(PlayVideoActivity.MOVIE_DATA, movie);
+        context.startActivity(intent);
+    }
+
+    public static void toOnlineTV(Context context) {
+        Intent intent = new Intent(context, OnlineTVActivity.class);
         context.startActivity(intent);
     }
 

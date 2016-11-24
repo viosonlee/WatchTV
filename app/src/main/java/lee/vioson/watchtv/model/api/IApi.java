@@ -9,10 +9,12 @@ import lee.vioson.watchtv.model.pojo.homeData.MovieList;
 import lee.vioson.watchtv.model.pojo.homeData.MovieSetList;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
+import rx.Single;
 
 /**
  * Author:李烽
@@ -42,13 +44,15 @@ public interface IApi {
 
     //点播获取筛选条件
     @GET("/api/videosfilter")
-    Observable<DianBoFilter> getDianboFilter(@Query("type") int type);
+    Single<DianBoFilter> getDianboFilter(@Query("type") int type);
 
     //获取当前条件下的结果
+    @FormUrlEncoded
     @POST("/api/videos")
     Observable<FilterResult> getFilterResult(@Body FilterParam param);
 
     //获取当前条件下的结果
+    @FormUrlEncoded
     @POST("/api/videos")
     Observable<FilterResult> getFilterResult(@Field("genre") String genre, @Field("country") String country,
                                              @Field("sortby") String sortby, @Field("year") String year,
