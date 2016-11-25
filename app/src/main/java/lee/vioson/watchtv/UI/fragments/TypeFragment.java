@@ -37,11 +37,13 @@ import rx.Observer;
  * Todo
  */
 
-public class TypeFragment extends Fragment implements Observer<HomeData> {
+public class TypeFragment extends BaseFragment implements Observer<HomeData> {
     private com.open.androidtvwidget.leanback.recycle.RecyclerViewTV typeList;
     private lee.vioson.watchtv.widgets.customViews.ProgressWheel progressBar;
     private com.open.androidtvwidget.view.MainUpView mainUpView1;
     private RecyclerViewBridge mRecyclerViewBridge;
+
+    private View oldFocusView;//记录
 
     @Nullable
     @Override
@@ -130,11 +132,13 @@ public class TypeFragment extends Fragment implements Observer<HomeData> {
             @Override
             public void onItemSelected(RecyclerViewTV parent, View itemView, int position) {
                 mRecyclerViewBridge.setFocusView(itemView, 1.2f);
+                oldFocusView = itemView;
             }
 
             @Override
             public void onReviseFocusFollow(RecyclerViewTV parent, View itemView, int position) {
                 mRecyclerViewBridge.setFocusView(itemView, 1.2f);
+                oldFocusView = itemView;
             }
         });
         typeList.setOnItemClickListener((parent, itemView, position) -> {
@@ -143,4 +147,25 @@ public class TypeFragment extends Fragment implements Observer<HomeData> {
             ActivitySwitcher.toMovieList(getActivity(), doubanTopicList.get(position).id);
         });
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (oldFocusView != null) {
+            oldFocusView.setFocusableInTouchMode(false);
+            oldFocusView.setFocusable(false);
+            oldFocusView.clearFocus();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (oldFocusView != null) {
+            oldFocusView.setFocusableInTouchMode(true);
+            oldFocusView.setFocusable(true);
+            oldFocusView.requestFocus();
+        }
+    }
+
 }

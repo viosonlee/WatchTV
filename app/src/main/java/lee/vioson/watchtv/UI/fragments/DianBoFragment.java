@@ -26,7 +26,7 @@ import lee.vioson.watchtv.UI.activities.ActivitySwitcher;
  * Todo 点播
  */
 
-public class DianBoFragment extends Fragment implements View.OnClickListener {
+public class DianBoFragment extends BaseFragment implements View.OnClickListener {
     private android.widget.LinearLayout movie;
     private android.widget.LinearLayout tv;
     private android.widget.LinearLayout carton;
@@ -34,6 +34,7 @@ public class DianBoFragment extends Fragment implements View.OnClickListener {
     private com.open.androidtvwidget.view.MainUpView mainUpView1;
     private EffectNoDrawBridge noDrawBridge;
     private TableLayout parent;
+    private View oldFocusView;
 
     @Nullable
     @Override
@@ -70,6 +71,7 @@ public class DianBoFragment extends Fragment implements View.OnClickListener {
         noDrawBridge = (EffectNoDrawBridge) mainUpView1.getEffectBridge();
         parent.getViewTreeObserver().addOnGlobalFocusChangeListener((view12, view1) -> {
             noDrawBridge.setFocusView(view1, view12, 1.2f);
+
         });
     }
 
@@ -79,6 +81,7 @@ public class DianBoFragment extends Fragment implements View.OnClickListener {
         carton.setOnClickListener(this);
         variety.setOnClickListener(this);
     }
+
 
     @Override
     public void onClick(View view) {

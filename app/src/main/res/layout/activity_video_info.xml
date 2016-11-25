@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_video_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context="lee.vioson.watchtv.UI.activities.VideoInfoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/pic"
+                android:layout_width="@dimen/width_video_info_icon_width"
+                android:layout_height="@dimen/width_video_info_icon_height"
+                android:layout_margin="@dimen/d_15"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d_15"
+                android:layout_marginRight="@dimen/d_15"
+                android:layout_marginTop="@dimen/d_15"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/text_color_gray"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/choose_unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d_15"
+            android:layout_marginLeft="@dimen/d_15"
+            android:layout_marginRight="@dimen/d_15" />
+
+    </LinearLayout>
+
+    <lee.vioson.watchtv.widgets.customViews.ProgressWheel
+        android:id="@+id/progress_wheel"
+        android:layout_width="@dimen/progress_size"
+        android:layout_height="@dimen/progress_size"
+        android:layout_centerInParent="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        wheel:matProg_barColor="@color/card_normal_deep_green"
+        wheel:matProg_progressIndeterminate="true" />
+
+    <com.open.androidtvwidget.view.MainUpView
+        android:id="@+id/mainUpView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

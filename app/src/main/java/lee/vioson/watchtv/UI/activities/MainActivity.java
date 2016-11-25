@@ -16,8 +16,6 @@ import java.util.List;
 import lee.vioson.watchtv.R;
 import lee.vioson.watchtv.UI.adapters.MainFragmentPagerAdapter;
 import lee.vioson.watchtv.UI.fragments.DianBoFragment;
-import lee.vioson.watchtv.UI.fragments.FirstFragment;
-import lee.vioson.watchtv.UI.fragments.FirstFragmentNew;
 import lee.vioson.watchtv.UI.fragments.OnlineTVFragment;
 import lee.vioson.watchtv.UI.fragments.TypeFragment;
 
@@ -51,6 +49,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         fragmentPagerAdapter = new MainFragmentPagerAdapter(fragmentList, getSupportFragmentManager());
         fragmentPager.setAdapter(fragmentPagerAdapter);
         fragmentPager.addOnPageChangeListener(this);
+        fragmentPager.setOffscreenPageLimit(3);
     }
 
 
@@ -84,16 +83,25 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 tab0.setTextColor(Color.parseColor("#d8f407"));
                 tab1.setTextColor(Color.parseColor("#ffffff"));
                 tab2.setTextColor(Color.parseColor("#ffffff"));
+                tab0.setFocusable(true);
+                tab0.setFocusableInTouchMode(true);
+                tab0.requestFocus();
                 break;
             case 1:
                 tab1.setTextColor(Color.parseColor("#d8f407"));
                 tab0.setTextColor(Color.parseColor("#ffffff"));
                 tab2.setTextColor(Color.parseColor("#ffffff"));
+                tab1.setFocusable(true);
+                tab1.setFocusableInTouchMode(true);
+                tab1.requestFocus();
                 break;
             case 2:
                 tab2.setTextColor(Color.parseColor("#d8f407"));
                 tab1.setTextColor(Color.parseColor("#ffffff"));
                 tab0.setTextColor(Color.parseColor("#ffffff"));
+                tab2.setFocusable(true);
+                tab2.setFocusableInTouchMode(true);
+                tab2.requestFocus();
                 break;
         }
     }

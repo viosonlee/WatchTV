@@ -116,9 +116,8 @@ public class FilterListActivity extends Activity implements Observer<FilterResul
         mainUpView1.setEffectBridge(new RecyclerViewBridge());
         mRecyclerViewBridge = (RecyclerViewBridge) mainUpView1.getEffectBridge();
         mRecyclerViewBridge.setUpRectResource(R.drawable.white_light_10);
-        float density = getResources().getDisplayMetrics().density;
-        RectF receF = new RectF(0, DimenUtil.getDimension(this, R.dimen.d_15) * density, 0,
-                DimenUtil.getDimension(this, R.dimen.d_5) * density);
+        float dimension = getResources().getDimension(R.dimen.d_15);
+        RectF receF = new RectF(dimension, dimension, dimension, dimension);
         mRecyclerViewBridge.setDrawUpRectPadding(receF);
     }
 

@@ -40,7 +40,7 @@ public class OnlineTVActivity extends Activity {
         progressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
         videoView = (VideoView) findViewById(R.id.video_view);
         //测试地址
-        url = "http://live.3gv.ifeng.com/live/zhongwen.m3u8";
+        url = "http://as.luoke.net.cn/tw/ascc.php?id=739";
         if (url != null) {
             videoView.setVideoPath(url);
             Log.d(getClass().getSimpleName(), url);

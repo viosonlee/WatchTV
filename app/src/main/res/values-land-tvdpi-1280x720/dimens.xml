@@ -15,14 +15,14 @@
     <dimen name="progress_size">50dp</dimen>
     <dimen name="d_30">30dp</dimen>
     <dimen name="d_20">20dp</dimen>
-    <dimen name="content_margin">65dp</dimen>
-    <dimen name="type_margin">65dp</dimen>
+    <dimen name="content_margin">25dp</dimen>
+    <dimen name="type_margin">40dp</dimen>
     <dimen name="top_bar_height">60dp</dimen>
-    <dimen name="top_bar_text_width">105dp</dimen>
+    <dimen name="top_bar_text_width">100dp</dimen>
     <dimen name="size_db_main_icon">100dp</dimen>
-    <dimen name="margin_db_main_card">60dp</dimen>
-    <dimen name="margin_db_main_card_half">30dp</dimen>
-    <dimen name="height_type_fragment_card">410dp</dimen>
+    <dimen name="margin_db_main_card">50dp</dimen>
+    <dimen name="margin_db_main_card_half">25dp</dimen>
+    <dimen name="height_type_fragment_card" >350dp</dimen>
     <dimen name="width_video_info_icon_width">200dp</dimen>
     <dimen name="width_video_info_icon_height">350</dimen>
 </resources>

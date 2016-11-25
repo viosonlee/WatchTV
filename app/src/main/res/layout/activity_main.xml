@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/tab_bar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="@dimen/top_bar_height"
         android:layout_alignParentRight="true"
         android:background="#027029"
         android:gravity="center_vertical"
@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/tab0"
             style="@style/itemTextBlack"
-            android:layout_width="105dp"
+            android:layout_width="@dimen/top_bar_text_width"
             android:layout_height="wrap_content"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -32,7 +32,7 @@
         <TextView
             android:id="@+id/tab1"
             style="@style/itemTextBlack"
-            android:layout_width="105dp"
+            android:layout_width="@dimen/top_bar_text_width"
             android:layout_height="wrap_content"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -45,7 +45,7 @@
         <TextView
             android:id="@+id/tab2"
             style="@style/itemTextBlack"
-            android:layout_width="105dp"
+            android:layout_width="@dimen/top_bar_text_width"
             android:layout_height="wrap_content"
             android:focusable="true"
             android:focusableInTouchMode="true"

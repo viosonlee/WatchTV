@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    android:layout_margin="65dp"
+    android:layout_margin="@dimen/type_margin"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
     app:isReflect="true"
@@ -14,7 +14,8 @@
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/height_type_fragment_card"
+        android:scaleType="fitXY"
         android:src="@drawable/dianying" />
 
     <TextView

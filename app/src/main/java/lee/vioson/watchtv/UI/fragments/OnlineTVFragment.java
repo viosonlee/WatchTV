@@ -22,7 +22,7 @@ import lee.vioson.watchtv.UI.activities.ActivitySwitcher;
  * Todo
  */
 
-public class OnlineTVFragment extends Fragment {
+public class OnlineTVFragment extends BaseFragment {
     private com.open.androidtvwidget.view.MainUpView mainUpView1;
     private EffectNoDrawBridge noDrawBridge;
     private TableLayout parent;
@@ -30,6 +30,8 @@ public class OnlineTVFragment extends Fragment {
     private LinearLayout weishi;
     private LinearLayout local;
     private LinearLayout other;
+
+    private View oldFocusView;
 
     @Nullable
     @Override
@@ -70,7 +72,6 @@ public class OnlineTVFragment extends Fragment {
         });
 
     }
-
     private void initEvent() {
         cctv.setOnClickListener(view -> ActivitySwitcher.toOnlineTV(getContext()));
     }

@@ -1,9 +1,16 @@
 package lee.vioson.watchtv.model;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
+import java.io.IOException;
+
 import lee.vioson.watchtv.BuildConfig;
+import lee.vioson.watchtv.MyApplication;
 import lee.vioson.watchtv.model.api.IApi;
 import lee.vioson.watchtv.model.pojo.Video;
 import lee.vioson.watchtv.model.pojo.dianbo.DianBoFilter;
@@ -12,7 +19,11 @@ import lee.vioson.watchtv.model.pojo.dianbo.FilterResult;
 import lee.vioson.watchtv.model.pojo.homeData.HomeData;
 import lee.vioson.watchtv.model.pojo.homeData.MovieList;
 import lee.vioson.watchtv.model.pojo.homeData.MovieSetList;
+import okhttp3.Cache;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -31,10 +42,28 @@ import rx.schedulers.Schedulers;
 
 public class WebDataHelper {
     private static IApi iApi;
-    private static OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor
-            (new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build();
+    private static OkHttpClient okHttpClient;
+
     private static IApi getiApi() {
         if (iApi == null) {
+            File cacheFile = new File(MyApplication.getContext().getCacheDir(), "[cacheRetrofit]");
+            Cache cache = new Cache(cacheFile, 1024 * 1024 * 100);
+            Interceptor interceptor = new Interceptor() {
+                @Override
+                public Response intercept(Chain chain) throws IOException {
+                    Request request = chain.request();
+                    Response response = chain.proceed(request);
+                    int maxStale = 60 * 60 * 24 * 1;//缓存时间：一天
+                    return response.newBuilder()
+                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                            .removeHeader("Pragma")
+                            .build();
+                }
+            };
+//            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            okHttpClient = new OkHttpClient.Builder().addInterceptor(interceptor)
+                    .cache(cache)
+                    .build();
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BuildConfig.HOST)
                     .client(okHttpClient)
