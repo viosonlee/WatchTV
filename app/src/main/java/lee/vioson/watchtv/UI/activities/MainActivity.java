@@ -18,6 +18,7 @@ import lee.vioson.watchtv.UI.adapters.MainFragmentPagerAdapter;
 import lee.vioson.watchtv.UI.fragments.DianBoFragment;
 import lee.vioson.watchtv.UI.fragments.OnlineTVFragment;
 import lee.vioson.watchtv.UI.fragments.TypeFragment;
+import lee.vioson.watchtv.utils.TVSourceHelper;
 
 public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
 
@@ -32,6 +33,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TVSourceHelper.initTVSource();
         setContentView(R.layout.activity_main);
         initViewPager();
         initView();

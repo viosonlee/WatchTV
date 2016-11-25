@@ -10,4 +10,7 @@
     <string name="all">全部</string>
     <string name="by_score">最火</string>
     <string name="by_time">最新</string>
+    <string name="tv_source">
+
+    </string>
 </resources>
