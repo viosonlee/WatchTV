@@ -146,7 +146,10 @@ public class FilterListActivity extends Activity implements Observer<FilterResul
             @Override
             protected OnItemClickListener getOnItemClickListener() {
                 return (view, position) -> {
-                    ActivitySwitcher.toPlayMovie(FilterListActivity.this, mData.get(position));
+//                    ActivitySwitcher.toPlayMovie(FilterListActivity.this, mData.get(position));
+                    FilterResult.Result result = mData.get(position);
+                    ActivitySwitcher.toVideoInfo(FilterListActivity.this, result.movieId + "", result.img
+                            , result.album);
                 };
             }
         });

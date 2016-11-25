@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -31,12 +32,14 @@ public class PlayVideoActivity extends Activity {
     public static final String MOVIE_DATA = "movie_data";
     private static final int CHECK_STATE = 00;
     private VideoView videoView;
-    private Movie movie;
+//    private Movie movie;
     private int savePosition;//保存进度
     private ProgressWheel progressWheel;
     private int old_duration = 0;
     private Runnable runnable;
     private CheckStateHandler handler;
+
+    private String movieUrl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,15 +52,15 @@ public class PlayVideoActivity extends Activity {
 
     private void initMovie() {
         if (getIntent() != null) {
-            movie = (Movie) getIntent().getSerializableExtra(MOVIE_DATA);
+            movieUrl = getIntent().getStringExtra(MOVIE_DATA);
         }
     }
 
     private void initView() {
         progressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
         videoView = (VideoView) findViewById(R.id.video_view);
-        if (movie != null) {
-            String movieUrl = PlayUrlUtil.getMovieUrl(movie.movieId + "");
+        if (!TextUtils.isEmpty(movieUrl)) {
+//            String movieUrl = PlayUrlUtil.getMovieUrl(movie.movieId + "");
             videoView.setVideoPath(movieUrl);
             Log.d(getClass().getSimpleName(), movieUrl);
             videoView.setMediaController(new MediaController(this));
@@ -69,18 +72,13 @@ public class PlayVideoActivity extends Activity {
             videoView.start();
             progressWheel.postDelayed(() -> progressWheel.setVisibility(View.VISIBLE), 50);
             videoView.requestFocus();
-            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    progressWheel.setVisibility(View.GONE);
-                }
-            });
+            videoView.setOnPreparedListener(mediaPlayer -> progressWheel.setVisibility(View.GONE));
             //错误信息处理
             videoView.setOnErrorListener((mediaPlayer, what, extra) -> {
                 if (what == MediaPlayer.MEDIA_ERROR_SERVER_DIED) {
-                    Log.v(getClass().getSimpleName(), "Media Error,Server Died" + extra);
+                    Log.e(getClass().getSimpleName(), "Media Error,Server Died" + extra);
                 } else if (what == MediaPlayer.MEDIA_ERROR_UNKNOWN) {
-                    Log.v(getClass().getSimpleName(), "Media Error,Error Unknown " + extra);
+                    Log.e(getClass().getSimpleName(), "Media Error,Error Unknown " + extra);
                 }
                 return true;
             });

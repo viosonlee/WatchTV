@@ -12,42 +12,44 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/pic"
                 android:layout_width="@dimen/width_video_info_icon_width"
                 android:layout_height="@dimen/width_video_info_icon_height"
-                android:layout_margin="@dimen/d_15"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:layout_margin="@dimen/margin_db_main_card"
                 android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/des"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/d_15"
-                android:layout_marginRight="@dimen/d_15"
-                android:layout_marginTop="@dimen/d_15"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:layout_height="@dimen/width_video_info_icon_height"
+                android:layout_marginBottom="@dimen/margin_db_main_card"
+                android:layout_marginRight="@dimen/margin_db_main_card"
+                android:layout_marginTop="@dimen/margin_db_main_card"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:textColor="@color/text_color_gray"
                 android:textSize="20sp" />
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <com.open.androidtvwidget.leanback.recycle.RecyclerViewTV
             android:id="@+id/choose_unit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d_15"
-            android:layout_marginLeft="@dimen/d_15"
-            android:layout_marginRight="@dimen/d_15" />
+            android:layout_marginBottom="@dimen/margin_db_main_card"
+            android:layout_marginLeft="@dimen/margin_db_main_card"
+            android:layout_marginRight="@dimen/margin_db_main_card" />
 
     </LinearLayout>
 
@@ -56,8 +58,6 @@
         android:layout_width="@dimen/progress_size"
         android:layout_height="@dimen/progress_size"
         android:layout_centerInParent="true"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
         wheel:matProg_barColor="@color/card_normal_deep_green"
         wheel:matProg_progressIndeterminate="true" />
 

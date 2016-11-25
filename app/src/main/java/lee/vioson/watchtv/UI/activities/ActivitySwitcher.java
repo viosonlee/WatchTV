@@ -15,7 +15,7 @@ import lee.vioson.watchtv.model.pojo.homeData.Movie;
  */
 
 public class ActivitySwitcher {
-    public static void toPlayMovie(Context context, Movie movie) {
+    public static void toPlayMovie(Context context, String movie) {
         Intent intent = new Intent(context, PlayVideoActivity.class);
         intent.putExtra(PlayVideoActivity.MOVIE_DATA, movie);
         context.startActivity(intent);
@@ -53,6 +53,14 @@ public class ActivitySwitcher {
     public static void toFilterVariety(Context context) {
         Intent intent = new Intent(context, FilterListActivity.class);
         intent.putExtra(FilterListActivity.TYPE, CommonType.VARIETY);
+        context.startActivity(intent);
+    }
+
+    public static void toVideoInfo(Context context, String videoID, String img, boolean isAlbum) {
+        Intent intent = new Intent(context, VideoInfoActivity.class);
+        intent.putExtra(VideoInfoActivity.VIDEO_ID, videoID);
+        intent.putExtra(VideoInfoActivity.VIDEO_THUMB, img);
+        intent.putExtra(VideoInfoActivity.IS_ALBUM, isAlbum);
         context.startActivity(intent);
     }
 }

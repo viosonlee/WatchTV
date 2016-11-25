@@ -42,31 +42,11 @@ import rx.schedulers.Schedulers;
 
 public class WebDataHelper {
     private static IApi iApi;
-    private static OkHttpClient okHttpClient;
-
     private static IApi getiApi() {
         if (iApi == null) {
-            File cacheFile = new File(MyApplication.getContext().getCacheDir(), "[cacheRetrofit]");
-            Cache cache = new Cache(cacheFile, 1024 * 1024 * 100);
-            Interceptor interceptor = new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                    Request request = chain.request();
-                    Response response = chain.proceed(request);
-                    int maxStale = 60 * 60 * 24 * 1;//缓存时间：一天
-                    return response.newBuilder()
-                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                            .removeHeader("Pragma")
-                            .build();
-                }
-            };
-//            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-            okHttpClient = new OkHttpClient.Builder().addInterceptor(interceptor)
-                    .cache(cache)
-                    .build();
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BuildConfig.HOST)
-                    .client(okHttpClient)
+                    .client(OkHttpHelper.getHttpClient())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();

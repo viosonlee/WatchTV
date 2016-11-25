@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/unit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_item_ablum"
+    android:focusable="true"
+    android:background="@drawable/bg_menu_trans_selecter"
+    android:focusableInTouchMode="true"
+    android:textColor="@drawable/normal_text_color_selecter" />

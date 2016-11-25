@@ -73,7 +73,10 @@ public class MovieListActivity extends Activity implements Observer<MovieList> {
             @Override
             protected OnItemClickListener getOnItemClickListener() {
                 return (view, position) -> {
-                    ActivitySwitcher.toPlayMovie(MovieListActivity.this, mData.get(position));
+//                    ActivitySwitcher.toPlayMovie(MovieListActivity.this, mData.get(position));
+                    Movie movie = mData.get(position);
+                    ActivitySwitcher.toVideoInfo(MovieListActivity.this, movie.movieId + "",
+                            movie.img, movie.album);
                 };
             }
         });
