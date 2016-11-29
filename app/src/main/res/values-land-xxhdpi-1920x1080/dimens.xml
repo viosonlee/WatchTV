@@ -23,7 +23,7 @@
     <dimen name="margin_db_main_card">30dp</dimen>
     <dimen name="margin_db_main_card_half">15dp</dimen>
     <dimen name="height_type_fragment_card" >280dp</dimen>
-    <dimen name="width_video_info_icon_width">180dp</dimen>
-    <dimen name="width_video_info_icon_height">300dp</dimen>
+    <dimen name="width_video_info_icon_width">150dp</dimen>
+    <dimen name="width_video_info_icon_height">250dp</dimen>
     <dimen name="margin_item_ablum">20dp</dimen>
 </resources>

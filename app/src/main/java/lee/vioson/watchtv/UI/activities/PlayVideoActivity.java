@@ -10,15 +10,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import lee.vioson.watchtv.R;
-import lee.vioson.watchtv.model.pojo.homeData.Movie;
 import lee.vioson.watchtv.utils.AudioUtil;
-import lee.vioson.watchtv.utils.PlayUrlUtil;
+import lee.vioson.watchtv.widgets.MediaController;
 import lee.vioson.watchtv.widgets.customViews.ProgressWheel;
 
 /**
@@ -32,7 +30,7 @@ public class PlayVideoActivity extends Activity {
     public static final String MOVIE_DATA = "movie_data";
     private static final int CHECK_STATE = 00;
     private VideoView videoView;
-//    private Movie movie;
+    //    private Movie movie;
     private int savePosition;//保存进度
     private ProgressWheel progressWheel;
     private int old_duration = 0;
@@ -63,7 +61,8 @@ public class PlayVideoActivity extends Activity {
 //            String movieUrl = PlayUrlUtil.getMovieUrl(movie.movieId + "");
             videoView.setVideoPath(movieUrl);
             Log.d(getClass().getSimpleName(), movieUrl);
-            videoView.setMediaController(new MediaController(this));
+            MediaController controller = new MediaController(this);
+            videoView.setMediaController(controller);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.FILL_PARENT,
                     RelativeLayout.LayoutParams.FILL_PARENT);
@@ -117,7 +116,7 @@ public class PlayVideoActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (System.currentTimeMillis() - now <= 1000)
+        if (System.currentTimeMillis() - now <= 2000)
             finish();
         else {
             now = System.currentTimeMillis();

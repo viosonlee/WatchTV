@@ -90,7 +90,7 @@ public class OnlineTVActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (System.currentTimeMillis() - now <= 1000)
+        if (System.currentTimeMillis() - now <= 2000)
             finish();
         else {
             now = System.currentTimeMillis();

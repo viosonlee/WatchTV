@@ -46,7 +46,9 @@
         <activity
             android:name=".UI.activities.OnlineTVActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".UI.activities.VideoInfoActivity"></activity>
+        <activity
+            android:name=".UI.activities.VideoInfoActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
