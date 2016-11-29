@@ -72,8 +72,10 @@ public class OnlineTVActivity extends Activity {
             videoView.setOnErrorListener((mediaPlayer, what, extra) -> {
                 if (what == MediaPlayer.MEDIA_ERROR_SERVER_DIED) {
                     Log.v(getClass().getSimpleName(), "Media Error,Server Died" + extra);
+                    Toast.makeText(this, "Media Error,Server Died" + extra, Toast.LENGTH_SHORT).show();
                 } else if (what == MediaPlayer.MEDIA_ERROR_UNKNOWN) {
                     Log.v(getClass().getSimpleName(), "Media Error,Error Unknown " + extra);
+                    Toast.makeText(this, "Media Error,Error Unknown " + extra, Toast.LENGTH_SHORT).show();
                 }
                 return true;
             });
@@ -167,6 +169,7 @@ public class OnlineTVActivity extends Activity {
     }
 
     private void refresh() {
+        progressWheel.setVisibility(View.VISIBLE);
         videoView.stopPlayback();
         videoView.setVideoPath(mDatas.get(currentIndex).url);
         videoView.start();

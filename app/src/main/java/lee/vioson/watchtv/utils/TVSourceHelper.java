@@ -3,6 +3,7 @@ package lee.vioson.watchtv.utils;
 import java.util.ArrayList;
 
 import lee.vioson.watchtv.MyApplication;
+import lee.vioson.watchtv.R;
 import lee.vioson.watchtv.model.TVSource;
 
 /**
@@ -13,23 +14,23 @@ import lee.vioson.watchtv.model.TVSource;
  */
 
 public class TVSourceHelper {
-    private static final String tVSource = "$广东体育,http://14.18.17.142:9009/live/chid=56\n" +
-            "$CZ少儿 ,http://14.18.17.142:9009/live/chid=57\n" +
-            "$珠江  ,http://14.18.17.142:9009/live/chid=58\n" +
-            "$珠江電影 ,http://cdn9.3gtv.net:9235/tvlive/zjdy-h.stream/playlist.m3u8?wowzatokenCustomParameter=23800433690770737_121.201.14.133&wowzatokenendtime=1479667140&wowzatokenstarttime=1479659940&wowzatokenhash=mRZN7wWxnIIRn4HHRHR2oji2Y95JjrAbO1s3osXZBI4=&sec=dede8c4eeb2da39cd991967103dbfed7&portalId=6&contentType=4&pid=2&nettype=wifi&uac=android&rid=0&uid=866915020324713&mobilePhone=null\n" +
-            "$TVS1  ,http://14.18.17.142:9009/live/chid=61\n" +
-            "$TVS2           ,http://14.18.17.142:9009/live/chid=62\n" +
-            "$TVS3           ,http://14.18.17.142:9009/live/chid=63\n" +
-            "$TVS4           ,http://14.18.17.142:9009/live/chid=64\n" +
-            "$TVS4           ,http://14.18.17.142:9009/live/chid=65\n" +
-            "$广东新闻           ,http://14.18.17.142:9009/live/chid=66\n" +
-            "$CZ         ,http://14.18.17.142:9009/live/chid=68\n" +
-            "$CZ经济           ,http://14.18.17.142:9009/live/chid=69\n" +
-            "$CZ新闻       ,http://14.18.17.142:9009/live/chid=70\n" +
-            "$CZ影视       ,http://14.18.17.142:9009/live/chid=71\n" +
-            "$翡翠台1HD     ,http://wshls.acgvideo.com/live/live_44206803_1959058/playlist.m3u8?wsSecret=51d71659d69878d413a6f489b1e9bb0f&wsTime=57c569f1\n" +
-            "$翡翠台2HD     ,http://wshls.acgvideo.com/live/live_44206803_1959058/playlist.m3u8\n" +
-            "$美亚1        ,http://wshls.acgvideo.com/live/live_752869_9917726/playlist.m3u8?wsSecret=f28031532dd9afc281971a07f485e729&wsTime=57af0606\n" +
+    private static  String tVSource = "$广东体育,http://14.18.17.142:9009/live/chid=56\n" +
+            "$CZ少儿,http://14.18.17.142:9009/live/chid=57\n" +
+            "$珠江,http://14.18.17.142:9009/live/chid=58\n" +
+            "$珠江電影,http://cdn9.3gtv.net:9235/tvlive/zjdy-h.stream/playlist.m3u8?wowzatokenCustomParameter=23800433690770737_121.201.14.133&wowzatokenendtime=1479667140&wowzatokenstarttime=1479659940&wowzatokenhash=mRZN7wWxnIIRn4HHRHR2oji2Y95JjrAbO1s3osXZBI4=&sec=dede8c4eeb2da39cd991967103dbfed7&portalId=6&contentType=4&pid=2&nettype=wifi&uac=android&rid=0&uid=866915020324713&mobilePhone=null\n" +
+            "$TVS1,http://14.18.17.142:9009/live/chid=61\n" +
+            "$TVS2,http://14.18.17.142:9009/live/chid=62\n" +
+            "$TVS3,http://14.18.17.142:9009/live/chid=63\n" +
+            "$TVS4,http://14.18.17.142:9009/live/chid=64\n" +
+            "$TVS4,http://14.18.17.142:9009/live/chid=65\n" +
+            "$广东新闻,http://14.18.17.142:9009/live/chid=66\n" +
+            "$CZ,http://14.18.17.142:9009/live/chid=68\n" +
+            "$CZ经济,http://14.18.17.142:9009/live/chid=69\n" +
+            "$CZ新闻,http://14.18.17.142:9009/live/chid=70\n" +
+            "$CZ影视,http://14.18.17.142:9009/live/chid=71\n" +
+            "$翡翠台1HD,http://wshls.acgvideo.com/live/live_44206803_1959058/playlist.m3u8?wsSecret=51d71659d69878d413a6f489b1e9bb0f&wsTime=57c569f1\n" +
+            "$翡翠台2HD,http://wshls.acgvideo.com/live/live_44206803_1959058/playlist.m3u8\n" +
+            "$美亚1,http://wshls.acgvideo.com/live/live_752869_9917726/playlist.m3u8?wsSecret=f28031532dd9afc281971a07f485e729&wsTime=57af0606\n" +
             "$美亚2,http://wshls.acgvideo.com/live/live_752869_9917726/playlist.m3u8?wsSecret=6e43792f78fab86cfa2493ec6f09bdb1&wsTime=57c56a4a\n" +
             "$美亚3,http://wshls.acgvideo.com/live/live_752869_9917726/playlist.m3u8?wsSecret=de2523cc025ae837ebb1bbac0a6edc2c&wsTime=57a40ca3\n" +
             "$美亚4,http://wshls.acgvideo.com/live/live_752869_9917726/playlist.m3u8?wsSecret=ded1ac48de775be007ff8a8bf14c3c79&wsTime=57c6392b\n" +
@@ -636,14 +637,15 @@ public class TVSourceHelper {
             "\n";
 
     public static void initTVSource() {
+        tVSource = MyApplication.getContext().getString(R.string.tv_source);
         if (SPUtil.getTVSource(MyApplication.getContext()).isEmpty()) {
             ArrayList<TVSource> tvSources = new ArrayList<>();
-            String[] split = tVSource.split("$");
+            String[] split = tVSource.split("-");
             for (String s : split) {
                 try {
                     String[] split1 = s.split(",");
                     if (split1.length >= 2) {
-                        TVSource tvSource = new TVSource(split1[0], split1[1]);
+                        TVSource tvSource = new TVSource(split1[0].trim(), split1[1].trim());
                         tvSources.add(tvSource);
                     }
                 } catch (Exception e) {
