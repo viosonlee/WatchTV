@@ -18,6 +18,7 @@ import lee.vioson.watchtv.model.TVSource;
 
 public class SPUtil {
     private static final String TVSOURCE = "tv_source";
+    private static final String LAST_TV_POSITION = "last_tv_position";
     private static SharedPreferences sharedPreferences;
 
     private static SharedPreferences getSharedPreferences(Context context) {
@@ -35,5 +36,15 @@ public class SPUtil {
         ArrayList<TVSource> tvSources = JSONUtils.fromJson(string, new TypeToken<ArrayList<TVSource>>() {
         });
         return tvSources;
+    }
+
+    public static void saveLastTVPosition(int position, Context context) {
+        getSharedPreferences(context).edit()
+                .putInt(LAST_TV_POSITION, position)
+                .apply();
+    }
+
+    public static int getLastTVPosition(Context context) {
+        return getSharedPreferences(context).getInt(LAST_TV_POSITION, 0);
     }
 }

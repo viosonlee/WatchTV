@@ -1,6 +1,8 @@
 package lee.vioson.watchtv.UI.activities;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,10 +12,14 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.logging.SimpleFormatter;
 
 import lee.vioson.watchtv.R;
 import lee.vioson.watchtv.model.TVSource;
@@ -34,17 +40,27 @@ public class OnlineTVActivity extends Activity {
     private ArrayList<TVSource> mDatas = new ArrayList<>();
     private int currentIndex = 0;//当前频道
 
+    private TextView tvName, time;
+    private View tvInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_tv);
         mDatas = SPUtil.getTVSource(this);
 //        url = getUrl();
+        currentIndex = SPUtil.getLastTVPosition(this);
         initView();
         setStateListener();
+
     }
 
+
     private void initView() {
+        tvInfo = findViewById(R.id.tv_info);
+        tvInfoShow();
+        tvName = (TextView) findViewById(R.id.tv_name);
+        time = (TextView) findViewById(R.id.time);
         progressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
         videoView = (VideoView) findViewById(R.id.video_view);
         //测试地址
@@ -90,6 +106,19 @@ public class OnlineTVActivity extends Activity {
 
     long now = 0;
 
+    private void tvInfoShow() {
+        tvName.setText(mDatas.get(currentIndex).title);
+        time.setText(getNow());
+        tvInfo.setVisibility(View.VISIBLE);
+        tvInfo.postDelayed(() -> tvInfo.setVisibility(View.GONE), 3000);
+    }
+
+    private String getNow() {
+        long millis = System.currentTimeMillis();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        return format.format(millis);
+    }
+
     @Override
     public void onBackPressed() {
         if (System.currentTimeMillis() - now <= 2000)
@@ -98,6 +127,12 @@ public class OnlineTVActivity extends Activity {
             now = System.currentTimeMillis();
             Toast.makeText(this, R.string.two_click_exit, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SPUtil.saveLastTVPosition(currentIndex, this);
     }
 
     @Override
@@ -169,6 +204,7 @@ public class OnlineTVActivity extends Activity {
     }
 
     private void refresh() {
+        tvInfoShow();
         progressWheel.setVisibility(View.VISIBLE);
         videoView.stopPlayback();
         videoView.setVideoPath(mDatas.get(currentIndex).url);

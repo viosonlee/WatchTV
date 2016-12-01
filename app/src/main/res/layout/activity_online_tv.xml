@@ -19,4 +19,12 @@
         wheel:matProg_barColor="@color/card_normal_deep_green"
         wheel:matProg_progressIndeterminate="true" />
 
+    <include
+        android:id="@+id/tv_info"
+        layout="@layout/view_tv_info"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
