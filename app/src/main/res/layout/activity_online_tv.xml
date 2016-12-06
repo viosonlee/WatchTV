@@ -6,7 +6,7 @@
     android:background="#333333"
     android:gravity="center">
 
-    <VideoView
+    <lee.vioson.watchtv.widgets.customViews.MyVideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

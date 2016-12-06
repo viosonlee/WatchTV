@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import lee.vioson.watchtv.UI.fragments.OnlineTVFragment;
 import lee.vioson.watchtv.model.CommonType;
+import lee.vioson.watchtv.model.TVSource;
 import lee.vioson.watchtv.model.pojo.homeData.Movie;
 
 /**
@@ -21,8 +22,27 @@ public class ActivitySwitcher {
         context.startActivity(intent);
     }
 
+    @Deprecated
     public static void toOnlineTV(Context context) {
         Intent intent = new Intent(context, OnlineTVActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void toCCTVOnline(Context context) {
+        Intent intent = new Intent(context, OnlineTVActivity.class);
+        intent.putExtra(OnlineTVActivity.TV_TYPE, TVSource.Type.cctv);
+        context.startActivity(intent);
+    }
+
+    public static void toWSOnline(Context context) {
+        Intent intent = new Intent(context, OnlineTVActivity.class);
+        intent.putExtra(OnlineTVActivity.TV_TYPE, TVSource.Type.weishi);
+        context.startActivity(intent);
+    }
+
+    public static void toOtherOnline(Context context) {
+        Intent intent = new Intent(context, OnlineTVActivity.class);
+        intent.putExtra(OnlineTVActivity.TV_TYPE, TVSource.Type.other);
         context.startActivity(intent);
     }
 

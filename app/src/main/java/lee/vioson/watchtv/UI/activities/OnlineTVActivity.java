@@ -1,8 +1,6 @@
 package lee.vioson.watchtv.UI.activities;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,18 +17,19 @@ import android.widget.VideoView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.logging.SimpleFormatter;
 
 import lee.vioson.watchtv.R;
 import lee.vioson.watchtv.model.TVSource;
-import lee.vioson.watchtv.utils.SPUtil;
+import lee.vioson.watchtv.utils.ScreenUtil;
+import lee.vioson.watchtv.utils.TVSourceHelper;
+import lee.vioson.watchtv.widgets.customViews.MyVideoView;
 import lee.vioson.watchtv.widgets.customViews.ProgressWheel;
 
 public class OnlineTVActivity extends Activity {
-
     private static final String URL = "url";
     private static final int CHECK_STATE = 001;
-    private VideoView videoView;
+    public static final String TV_TYPE = "tv_type";
+    private MyVideoView videoView;
     private ProgressWheel progressWheel;
     private String url;//当前的电视台url
     private int savePosition;
@@ -43,33 +42,31 @@ public class OnlineTVActivity extends Activity {
     private TextView tvName, time;
     private View tvInfo;
 
+    private TVSource.Type type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_tv);
-        mDatas = SPUtil.getTVSource(this);
-//        url = getUrl();
-        currentIndex = SPUtil.getLastTVPosition(this);
+        type = (TVSource.Type) getIntent().getSerializableExtra(TV_TYPE);
+        mDatas = TVSourceHelper.getTvSourceByType(type);
+        currentIndex = TVSourceHelper.getLastPositionByType(type);
         initView();
         setStateListener();
-
     }
 
 
     private void initView() {
         tvInfo = findViewById(R.id.tv_info);
-        tvInfoShow();
         tvName = (TextView) findViewById(R.id.tv_name);
         time = (TextView) findViewById(R.id.time);
         progressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
-        videoView = (VideoView) findViewById(R.id.video_view);
-        //测试地址
-//        url = "http://14.18.17.142:9009/live/chid=56";
+        videoView = (MyVideoView) findViewById(R.id.video_view);
+        tvInfoShow();
         url = mDatas.get(currentIndex).url;
         if (url != null) {
             videoView.setVideoPath(url);
             Log.d(getClass().getSimpleName(), url);
-//            videoView.setMediaController(new MediaController(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.FILL_PARENT,
                     RelativeLayout.LayoutParams.FILL_PARENT);
@@ -78,11 +75,10 @@ public class OnlineTVActivity extends Activity {
             videoView.start();
             progressWheel.postDelayed(() -> progressWheel.setVisibility(View.VISIBLE), 50);
             videoView.requestFocus();
-            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    progressWheel.setVisibility(View.GONE);
-                }
+            videoView.setOnPreparedListener(mediaPlayer -> {
+                progressWheel.setVisibility(View.GONE);
+                tvInfo.postDelayed(() -> tvInfo.setVisibility(View.GONE), 5000);
+                mediaPlayer.setOnVideoSizeChangedListener((mediaPlayer1, i, i1) -> fixVideoSize(mediaPlayer));
             });
             //错误信息处理
             videoView.setOnErrorListener((mediaPlayer, what, extra) -> {
@@ -98,19 +94,43 @@ public class OnlineTVActivity extends Activity {
             if (Build.VERSION.SDK_INT >= 17) {
                 videoView.setOnInfoListener((mediaPlayer, i, i1) -> {
                     Log.i(getClass().getSimpleName(), "i--" + i + "i1--" + i1);
+                    mediaPlayer.setOnVideoSizeChangedListener((mediaPlayer1, j, j1) -> fixVideoSize(mediaPlayer));
                     return false;
                 });
             }
         }
     }
 
+    private void fixVideoSize(MediaPlayer mediaPlayer) {
+        double videoWidth = mediaPlayer.getVideoWidth();
+        double videoHeight = mediaPlayer.getVideoHeight();
+        if (videoWidth > 0 && videoHeight > 0) {
+            double scale = videoHeight / videoWidth;//视频比例
+            double screenScale = (double) ScreenUtil.getScreenHeight(OnlineTVActivity.this)
+                    / (double) ScreenUtil.getScreenWidth(OnlineTVActivity.this);
+            if (scale < screenScale) {
+                //以width为准
+                videoWidth = ScreenUtil.getScreenWidth(OnlineTVActivity.this);
+                videoHeight = videoWidth * scale;
+            } else {
+                //以height为准
+                videoHeight = ScreenUtil.getScreenHeight(OnlineTVActivity.this);
+                videoWidth = videoHeight / scale;
+            }
+            videoView.getHolder().setFixedSize((int) videoWidth, (int) videoHeight);
+            videoView.setMeasure((int) videoWidth, (int) videoHeight);
+            videoView.requestLayout();
+        }
+    }
+
     long now = 0;
 
     private void tvInfoShow() {
-        tvName.setText(mDatas.get(currentIndex).title);
+        tvName.setText((currentIndex + 1) + mDatas.get(currentIndex).title);
         time.setText(getNow());
-        tvInfo.setVisibility(View.VISIBLE);
-        tvInfo.postDelayed(() -> tvInfo.setVisibility(View.GONE), 3000);
+        if (tvInfo.getVisibility() == View.GONE) {
+            tvInfo.setVisibility(View.VISIBLE);
+        }
     }
 
     private String getNow() {
@@ -132,7 +152,7 @@ public class OnlineTVActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SPUtil.saveLastTVPosition(currentIndex, this);
+        TVSourceHelper.saveLastPositionByType(type, currentIndex);
     }
 
     @Override
@@ -157,16 +177,6 @@ public class OnlineTVActivity extends Activity {
         super.onResume();
     }
 
-    private void toggle() {
-        boolean playing = videoView.isPlaying();
-        if (playing)
-            videoView.pause();
-        else videoView.start();
-    }
-
-    public String getUrl() {
-        return getIntent().getStringExtra(URL);
-    }
 
     private void setStateListener() {
         handler = new CheckStateHandler();

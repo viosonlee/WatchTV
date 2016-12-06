@@ -31,31 +31,28 @@ public class OkHttpHelper {
         File cacheFile = new File(MyApplication.getContext().getCacheDir().getAbsolutePath(), "HttpCache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100);//缓存文件为100MB
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(new Interceptor() {
-                    @Override
-                    public Response intercept(Chain chain) throws IOException {
-                        int maxAge = 60 * 60 * 24;//有网缓存24小时;
-                        int maxStale = 60 * 60 * 24 * 28;//无网情况 4周
-                        Request request = chain.request();
-                        if (isNetworkReachable(MyApplication.getContext()))
-                            request = request.newBuilder()
-                                    .cacheControl(CacheControl.FORCE_NETWORK)
-                                    .build();
-                        else request = request.newBuilder()
-                                .cacheControl(CacheControl.FORCE_CACHE)
+                .addInterceptor(chain -> {
+                    int maxAge = 60 * 60 * 24;//有网缓存24小时;
+                    int maxStale = 60 * 60 * 24 * 28;//无网情况 4周
+                    Request request = chain.request();
+                    if (isNetworkReachable(MyApplication.getContext()))
+                        request = request.newBuilder()
+                                .cacheControl(CacheControl.FORCE_NETWORK)
                                 .build();
-                        Response response = chain.proceed(request);
-                        if (isNetworkReachable(MyApplication.getContext()))
-                            response = response.newBuilder()
-                                    .removeHeader("Pragma")
-                                    .header("Cache-Control", "public,max-age=" + maxAge)
-                                    .build();
-                        else response = response.newBuilder()
+                    else request = request.newBuilder()
+                            .cacheControl(CacheControl.FORCE_CACHE)
+                            .build();
+                    Response response = chain.proceed(request);
+                    if (isNetworkReachable(MyApplication.getContext()))
+                        response = response.newBuilder()
                                 .removeHeader("Pragma")
-                                .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                                .header("Cache-Control", "public,max-age=" + maxAge)
                                 .build();
-                        return response;
-                    }
+                    else response = response.newBuilder()
+                            .removeHeader("Pragma")
+                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                            .build();
+                    return response;
                 })
                 .connectTimeout(DEFULT_TIME_OUT, TimeUnit.SECONDS)
                 .cache(cache)

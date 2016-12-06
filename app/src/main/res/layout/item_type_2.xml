@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/content_margin"
     android:clickable="true"
     android:focusable="true"
-    android:layout_margin="@dimen/type_margin"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
     app:isReflect="true"
@@ -24,9 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:background="@color/text_color_gray"
+        android:gravity="center"
         android:padding="5dp"
         android:text="免费电影"
-        android:gravity="center"
         android:textColor="@drawable/normal_text_color_selecter"
-        android:textSize="25sp" />
+        android:textSize="@dimen/text_size_content_card" />
 </com.open.androidtvwidget.view.ReflectItemView>

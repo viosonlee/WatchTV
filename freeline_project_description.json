@@ -1,0 +1,126 @@
+{
+    "android_gradle_plugin_version": "2.2.2",
+    "apk_path": "E:\\myworkspace\\WatchTV\\app\\build\\outputs\\apk\\app-debug.apk",
+    "auto_dependency": true,
+    "build_cache_dir": "E:\\myworkspace\\WatchTV\\app\\build\\freeline",
+    "build_directory": "E:\\myworkspace\\WatchTV\\app\\build",
+    "build_script": "gradlew.bat :app:assembleDebug",
+    "build_script_work_directory": "",
+    "build_tools_directory": "D:\\SDK\\SDK\\build-tools\\25.0.0",
+    "build_tools_version": "25.0.0",
+    "compile_sdk_directory": "D:\\SDK\\SDK\\platforms\\android-25",
+    "compile_sdk_version": "android-25",
+    "databinding": [
+        
+    ],
+    "databinding_modules": [
+        
+    ],
+    "debug_package": "lee.vioson.watchtv",
+    "exclude_dep_res_paths": [
+        
+    ],
+    "extra_dep_res_paths": [
+        
+    ],
+    "freeline_cache_dir": "E:\\myworkspace\\WatchTV",
+    "freeline_gradle_plugin_version": "0.8.3",
+    "java_home": "C:\\Program Files\\Java\\jdk1.8.0_20",
+    "launcher": "lee.vioson.watchtv.UI.activities.MainActivity",
+    "main_assets_directory": [
+        "E:\\myworkspace\\WatchTV\\app\\src\\debug\\assets",
+        "E:\\myworkspace\\WatchTV\\app\\src\\main\\assets"
+    ],
+    "main_jniLibs_directory": [
+        "E:\\myworkspace\\WatchTV\\app\\src\\debug\\jniLibs",
+        "E:\\myworkspace\\WatchTV\\app\\src\\main\\jniLibs"
+    ],
+    "main_jni_directory": [
+        "E:\\myworkspace\\WatchTV\\app\\src\\debug\\jni",
+        "E:\\myworkspace\\WatchTV\\app\\src\\main\\jni"
+    ],
+    "main_manifest_path": "E:\\myworkspace\\WatchTV\\app\\src\\main\\AndroidManifest.xml",
+    "main_project_dir": "app",
+    "main_project_name": "app",
+    "main_r_path": "E:\\myworkspace\\WatchTV\\app\\build\\generated\\source\\r\\debug\\R.java",
+    "main_res_directory": [
+        "E:\\myworkspace\\WatchTV\\app\\src\\debug\\res",
+        "E:\\myworkspace\\WatchTV\\app\\src\\main\\res"
+    ],
+    "main_src_directory": [
+        "E:\\myworkspace\\WatchTV\\app\\src\\debug\\java",
+        "E:\\myworkspace\\WatchTV\\app\\src\\main\\java"
+    ],
+    "module_dependencies": {
+        "androidtvwidget": [
+            
+        ],
+        "app": [
+            "androidtvwidget"
+        ]
+    },
+    "modules": [
+        {
+            "name": "app",
+            "path": "E:\\myworkspace\\WatchTV\\app"
+        },
+        {
+            "name": "androidtvwidget",
+            "path": "E:\\myworkspace\\WatchTV\\androidtvwidget"
+        }
+    ],
+    "package": "lee.vioson.watchtv",
+    "product_flavor": "",
+    "project_source_sets": {
+        "androidtvwidget": {
+            "main_assets_directory": [
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\release\\assets",
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\release\\jniLibs",
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\release\\jni",
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\main\\jni"
+            ],
+            "main_manifest_path": "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\release\\res",
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\release\\java",
+                "E:\\myworkspace\\WatchTV\\androidtvwidget\\src\\main\\java"
+            ]
+        },
+        "app": {
+            "main_assets_directory": [
+                "E:\\myworkspace\\WatchTV\\app\\src\\debug\\assets",
+                "E:\\myworkspace\\WatchTV\\app\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "E:\\myworkspace\\WatchTV\\app\\src\\debug\\jniLibs",
+                "E:\\myworkspace\\WatchTV\\app\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "E:\\myworkspace\\WatchTV\\app\\src\\debug\\jni",
+                "E:\\myworkspace\\WatchTV\\app\\src\\main\\jni"
+            ],
+            "main_manifest_path": "E:\\myworkspace\\WatchTV\\app\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "E:\\myworkspace\\WatchTV\\app\\src\\debug\\res",
+                "E:\\myworkspace\\WatchTV\\app\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "E:\\myworkspace\\WatchTV\\app\\src\\debug\\java",
+                "E:\\myworkspace\\WatchTV\\app\\src\\main\\java"
+            ]
+        }
+    },
+    "project_type": "gradle",
+    "root_dir": "E:\\myworkspace\\WatchTV",
+    "sdk_directory": "D:\\SDK\\SDK",
+    "use_jdk8": true
+}

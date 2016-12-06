@@ -72,7 +72,10 @@ public class OnlineTVFragment extends BaseFragment {
         });
 
     }
+
     private void initEvent() {
-        cctv.setOnClickListener(view -> ActivitySwitcher.toOnlineTV(getContext()));
+        other.setOnClickListener(view -> ActivitySwitcher.toOtherOnline(getContext()));
+        weishi.setOnClickListener(view -> ActivitySwitcher.toWSOnline(getContext()));
+        cctv.setOnClickListener(view -> ActivitySwitcher.toCCTVOnline(getContext()));
     }
 }

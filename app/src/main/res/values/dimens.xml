@@ -26,4 +26,6 @@
     <dimen name="width_video_info_icon_width">150dp</dimen>
     <dimen name="width_video_info_icon_height">250dp</dimen>
     <dimen name="margin_item_ablum">20dp</dimen>
+    <dimen name="text_size_top_bar">30sp</dimen>
+    <dimen name="text_size_content_card">25sp</dimen>
 </resources>

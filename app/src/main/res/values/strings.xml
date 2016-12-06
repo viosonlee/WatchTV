@@ -10,6 +10,49 @@
     <string name="all">全部</string>
     <string name="by_score">最火</string>
     <string name="by_time">最新</string>
+    <string name="tv_source_ad">-e1,http://37.187.128.169:8000/live/545dfkdji/askdhfkaj477eej/45.ts
+-e2,http://37.187.128.169:8000/live/545dfkdji/askdhfkaj477eej/46.ts
+-e3,http://37.187.128.169:8000/live/545dfkdji/askdhfkaj477eej/50.ts
+-歐美五,p2p://61.221.233.81:9000/55237624000327b40608ce5577842683&amp;link
+-e4,http://37.187.128.169:8000/live/545dfkdji/askdhfkaj477eej/48.ts
+-e5,http://37.187.128.169:8000/live/545dfkdji/askdhfkaj477eej/49.ts
+-e7,http://37.187.128.169:8000/live/545dfkdji/askdhfkaj477eej/51.ts
+-e8,http://37.187.128.169:8000/live/545dfkdji/askdhfkaj477eej/52.ts
+</string>
+    <string name="tv_source_weishi">-湖南卫视,http://14.18.17.142:9009/live/chid=018
+-江苏卫视,http://14.18.17.142:9009/live/chid=023
+-山东卫视,http://14.18.17.142:9009/live/chid=025
+-北京卫视,http://14.18.17.142:9009/live/chid=029
+-东南卫视,http://14.18.17.142:9009/live/chid=030
+-广东卫视,http://14.18.17.142:9009/live/chid=035
+-深圳卫视,http://14.18.17.142:9009/live/chid=036
+-浙江卫视,http://14.18.17.142:9009/live/chid=041
+-东方卫视,http://14.18.17.142:9009/live/chid=042
+-贵州卫视,http://14.18.17.142:9009/live/chid=016
+-四川卫视,http://14.18.17.142:9009/live/chid=017
+-广西卫视,http://14.18.17.142:9009/live/chid=019
+-中国教育1,http://14.18.17.142:9009/live/chid=020
+-安徽卫视,http://14.18.17.142:9009/live/chid=022
+-吉林卫视,http://14.18.17.142:9009/live/chid=026
+-天津卫视,http://14.18.17.142:9009/live/chid=027
+-河南卫视,http://14.18.17.142:9009/live/chid=028
+-云南卫视,http://14.18.17.142:9009/live/chid=034
+-湖北卫视,http://14.18.17.142:9009/live/chid=049</string>
+    <string name="tv_source_cctv">-央视综合1,http://14.18.17.142:9009/live/chid=001
+-央视经济2,http://14.18.17.142:9009/live/chid=002
+-央视综艺3,http://14.18.17.142:9009/live/chid=008
+-央视国际4,http://14.18.17.142:9009/live/chid=014
+-央视体育5,http://14.18.17.142:9009/live/chid=009
+-央视电影6,http://14.18.17.142:9009/live/chid=010
+-央视农业7,http://14.18.17.142:9009/live/chid=003
+-央视剧场8,http://14.18.17.142:9009/live/chid=011
+-央视纪录9,http://14.18.17.142:9009/live/chid=015
+-央视科教10,http://14.18.17.142:9009/live/chid=004
+-央视戏曲11,http://14.18.17.142:9009/live/chid=005
+-央视法制12,http://14.18.17.142:9009/live/chid=006
+-央视新闻13,http://14.18.17.142:9009/live/chid=013
+-央视少儿14,http://14.18.17.142:9009/live/chid=012
+-央视音乐15,http://14.18.17.142:9009/live/chid=007</string>
     <string name="tv_source">-广东体育,http://14.18.17.142:9009/live/chid=56
 -CZ少儿,http://14.18.17.142:9009/live/chid=57
 -珠江,http://14.18.17.142:9009/live/chid=58
