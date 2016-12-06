@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/content_margin"
         android:textColor="@color/white"
-        android:textSize="35sp"
+        android:textSize="@dimen/text_size_top_bar"
         tools:text="cctv-1" />
 
     <TextView
@@ -24,5 +24,5 @@
         android:layout_marginRight="@dimen/content_margin"
         android:text="2016-11-30"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_25" />
+        android:textSize="@dimen/text_size_content_card" />
 </LinearLayout>
